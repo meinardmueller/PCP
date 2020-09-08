@@ -14,6 +14,10 @@ jupyter notebook
 
 ## Using colab and binder
 
+Some of the PCP notebooks may be exectued using [Google colab](https://colab.research.google.com/). The starting notebook can be accesed via:
+
+https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb
+
 
 ## Acknowledgements
 
