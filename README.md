@@ -4,7 +4,8 @@ This repository contains the PCP Notebooks, which introduce some basic material 
 
 If a static view of the PCP notebooks is enough for you, the [exported HTML versions](https://www.audiolabs-erlangen.de/PCP) can be used right away without any installation. All material including the explanations, the figures, and the audio examples can be accessed by just following the **HTML links**. If you want to **execute** the Python code cells, you have to clone/download the notebooks (along with the data), create an environment, and start a Jupyter server. You then need to follow the **IPYNB links** within the Jupyter session. The necessary steps are explained in detail in the [PCP notebook on how to get started](https://www.audiolabs-erlangen.de/resources/MIR/PCP/PCP_getstarted.html).
 
-## Installation and Usage
+## Installing Local Environment for Executing PCP Notebooks
+This is the preferred and tested variant for using the PCP notebooks.
 
 ```
 conda env create -f environment.yml
@@ -12,7 +13,7 @@ conda activate PCP
 jupyter notebook
 ```
 
-## Using colab and binder
+## Using Web-Based Services for Executing PCP Notebooks
 
 ### Google colab
 Some of the PCP notebooks may be exectued using [Google colab](https://colab.research.google.com/). However, this may need some adaptions. In particular, one needs to clone the PCP repository to get access to data and the functions in LibPCP. The starting notebook can be accesed via:
