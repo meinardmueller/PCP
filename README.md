@@ -14,10 +14,15 @@ jupyter notebook
 
 ## Using colab and binder
 
-Some of the PCP notebooks may be exectued using [Google colab](https://colab.research.google.com/). The starting notebook can be accesed via:
+### Google colab
+Some of the PCP notebooks may be exectued using [Google colab](https://colab.research.google.com/). However, this may need some adaptions. In particular, one needs to clone the PCP repository to get access to data and the functions in LibPCP. The starting notebook can be accesed via:
 
 https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb
 
+### Binder
+One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. This clones the respository and automatically creates a conda environment. This may take several (maybe even up to ten) minutes) when starting binder. 
+
+https://mybinder.org/v2/gh/meinardmueller/PCP/master
 
 ## Acknowledgements
 
