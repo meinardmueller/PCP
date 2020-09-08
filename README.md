@@ -18,12 +18,11 @@ jupyter notebook
 ### Google colab
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb)
 
-Some of the PCP notebooks may be executed using [Google colab](https://colab.research.google.com/). However, this may need some adaptions. In particular, one needs to clone the PCP repository to get access to data and the functions in LibPCP. The starting notebook can be accesed via:
+The PCP notebooks may be executed using [Google colab](https://colab.research.google.com/). However, this needs some preparation. First, you need to be logged in with a Google account. The starting notebook can be accesed via:
 
 https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb
 
-To get access to to data and the functions in LibFMP, you have to clone the PCP git repository.
-To this end, for each colab session, you need to execute a code cell containing the following lines:
+For the other notebooks, clone the PCP repository to get access to data and the functions in LibPCP. To this end, for each colab session, include and execute a code cell at the beginning of the notebook containing the following lines:
 
 ```
 %%bash
