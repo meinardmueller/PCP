@@ -16,16 +16,29 @@ jupyter notebook
 ## Using Web-Based Services for Executing PCP Notebooks
 
 ### Google colab
-Some of the PCP notebooks may be exectued using [Google colab](https://colab.research.google.com/). However, this may need some adaptions. In particular, one needs to clone the PCP repository to get access to data and the functions in LibPCP. The starting notebook can be accesed via:
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb)
+
+Some of the PCP notebooks may be executed using [Google colab](https://colab.research.google.com/). However, this may need some adaptions. In particular, one needs to clone the PCP repository to get access to data and the functions in LibPCP. The starting notebook can be accesed via:
 
 https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb
 
+To get access to to data and the functions in LibFMP, you have to clone the PCP git repository.
+To this end, for each colab session, you need to execute a code cell containing the following lines:
+
+```
+%%bash
+git clone https://github.com/meinardmueller/PCP.git PCP_temp
+mv PCP_temp/* .
+rm -rd PCP_temp
+```
+
 ### Binder
-One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. This clones the respository and automatically creates a conda environment. This may take several (maybe even up to ten) minutes) when starting binder. 
+[![Open In Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/meinardmueller/PCP/master)
+
+One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. This clones the repository and automatically creates a conda environment. This may take several (maybe even up to ten) minutes) when starting binder.
 
 https://mybinder.org/v2/gh/meinardmueller/PCP/master
 
 ## Acknowledgements
 
 We want to thank the various people who have contributed to the design, implementation, and code examples of the notebooks. We mention the main contributors in alphabetical order: Michael Krause, Heinrich Löllmann, Meinard Müller, Sebastian Rosenzweig, Frank Zalkow. The [International Audio Laboratories Erlangen](https://www.audiolabs-erlangen.de/) are a joint institution of the [Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)](https://www.fau.eu/) and [Fraunhofer Institute for Integrated Circuits IIS](https://www.iis.fraunhofer.de/en.html).
-
