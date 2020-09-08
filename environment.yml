@@ -14,4 +14,3 @@ dependencies:
   - jupyter_contrib_nbextensions=0.5.*
   - pip:
     - nbstripout==0.3.*
-    - pysoundfile==0.9.*
