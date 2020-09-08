@@ -1,0 +1,182 @@
+"""
+Source: PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
+Module: LibPCP.exp
+Author: Meinard Mueller, International Audio Laboratories Erlangen
+License: The MIT license, https://opensource.org/licenses/MIT
+"""
+
+import numpy as np
+from matplotlib import pyplot as plt
+from math import gcd
+from LibPCP.complex import plot_vector
+
+
+def exp_approx_Euler(x_min=0, x_max=2, x_delta=0.01, f_0=1):
+    """Approximation of exponential function using Euler's method
+
+    Notebook: PCP_exp.ipynb
+
+    Args:
+        x_min: Start of input interval
+        x_max: Ende of input interval
+        x_delta: Step size
+        f_0: Initial condition
+
+    Returns:
+        f: Signal
+        x: Sampled input interval
+    """
+    x = np.arange(0, x_max+x_delta, x_delta)
+    N = len(x)
+    f = np.zeros(N)
+    f[0] = f_0
+    for n in range(1, N):
+        f[n] = f[n-1] + f[n-1]*x_delta
+    return f, x
+
+
+def plot_root_unity(N, ax):
+    """Plotting N-th root of unity into figure with axis
+    Notebook: PCP_exp.ipynb"""
+    root_unity = np.exp(2j * np.pi / N)
+    root_unity_power = 1
+
+    ax.grid()
+    ax.set_xlim([-1.4, 1.4])
+    ax.set_ylim([-1.4, 1.4])
+    ax.set_xlabel('$\mathrm{Re}$')
+    ax.set_ylabel('$\mathrm{Im}$')
+    ax.set_title('Roots of unity for $N=%d$' % N)
+
+    for n in range(0, N):
+        colorPlot = 'r' if gcd(n, N) == 1 else 'k'
+        plot_vector(root_unity_power, color=colorPlot)
+        ax.text(np.real(1.2*root_unity_power), np.imag(1.2*root_unity_power),
+                r'$\rho_{%s}^{%s}$' % (N, n), size='14',
+                color=colorPlot, ha='center', va='center')
+        root_unity_power *= root_unity
+
+    circle_unit = plt.Circle((0, 0), 1, color='lightgray', fill=0)
+    ax.add_artist(circle_unit)
+
+
+def exercise_approx_exp(show_result=True):
+    """Exercise 1: Approximation of Exponential Function via Power Series
+       Notebook: PCP_exp.ipynb"""
+    if show_result is False:
+        return
+
+    def exp_power_series(z, N):
+        """Compute power series for exponential function
+        Notebook: PCP_Exponential.ipynb)
+        """
+        exp_z = 1.0
+        z_power = 1.0
+        nfac = 1.0
+        for n in range(1, N+1):
+            nfac *= n
+            z_power *= z
+            exp_z += z_power / nfac
+        return exp_z
+
+    def exp_limit_compound(z, N):
+        """Compute power series for exponential function
+        Notebook: PCP_Exponential.ipynb)
+        """
+        exp_z = (1 + z / N) ** N
+        return exp_z
+
+    z = 1
+    print('Input argument z = %.0f' % z)
+    for n in np.array([1, 2, 4, 8, 16, 32]):
+        z0 = np.exp(z)
+        z1 = exp_power_series(z, n)
+        z2 = exp_limit_compound(z, n)
+        print('N = %3d, Numpy = %.10f, Approx1 = %.10f, Approx2 = %.10f' % (n, z0, z1, z2))
+
+    z = 2 + 0.7*1j
+    print('Input argument z = (%1.1f, %1.1f)' % (z.real, z.imag))
+    for n in np.array([1, 2, 4, 8, 16, 32, 64, 128, 256, 512]):
+        z0 = np.exp(z)
+        z1 = exp_power_series(z, n)
+        z2 = exp_limit_compound(z, n)
+        print('N = %3d, Numpy = (%2.6f, %2.6f), Approx1 = (%2.6f, %2.6f), Approx2 = (%2.6f, %2.6f)' %
+              (n, z0.real, z0.imag, z1.real, z1.imag, z2.real, z2.imag))
+
+
+def exercise_gaussian(show_result=True):
+    """Exercise 2: Gaussian Function
+       Notebook: PCP_exp.ipynb"""
+    if show_result is False:
+        return
+
+    def compute_gaussian_1D(X, mu=0, sigma=1):
+        Y = 1 / (sigma * np.sqrt(2 * np.pi)) * np.exp((-1 / 2) * (((X - mu) / sigma) ** 2))
+        return Y
+
+    x_min = -8
+    x_max = 8
+    x_delta = 0.01
+    x = np.arange(x_min, x_max+x_delta, x_delta)
+
+    plt.figure(figsize=(10, 3))
+    plt.xlim([x_min, x_max])
+    plt.ylim([0, 0.6])
+    y1 = compute_gaussian_1D(x, mu=0, sigma=1)
+    plt.plot(x, y1, 'r')
+
+    y2 = compute_gaussian_1D(x, mu=-3, sigma=1.5)
+    plt.plot(x, y2, 'b')
+
+    y3 = compute_gaussian_1D(x, mu=+5, sigma=1)
+    plt.plot(x, y3, 'k')
+
+    y4 = compute_gaussian_1D(x, mu=2, sigma=0.8)
+    plt.plot(x, y4, 'g')
+
+    plt.legend(['$\mu=0, \sigma=1$', '$\mu=-3, \sigma=1.5$', '$\mu=5, \sigma=1$', '$\mu=2, \sigma=0.8$'],
+               loc='upper left', framealpha=1)
+    plt.xlim([x_min, x_max])
+    plt.grid()
+    plt.title('Different Gaussian functions')
+
+    plt.tight_layout()
+
+
+def exercise_spiral(show_result=True):
+    """Exercise 3: Spiral  Generation
+       Notebook: PCP_exp.ipynb"""
+    if show_result is False:
+        return
+
+    def generate_spiral(rad_start=0.5, rad_end=2, num_rot=5, angle_start=0, N=201):
+        gamma = np.linspace(0, num_rot, N)
+        rad = rad_start + (gamma/num_rot) * (rad_end - rad_start)
+        spiral = np.exp(2*np.pi*1j*gamma) * rad
+        angle_start_rad = np.deg2rad(angle_start)
+        spiral = np.exp(1j*angle_start_rad) * spiral
+        return spiral
+
+    def plot_spiral(ax, spiral, rad_start, rad_end, num_rot, angle_start, N):
+        ax.set_xlim([-rad_end*1.1, rad_end*1.1])
+        ax.set_ylim([-rad_end*1.1, rad_end*1.1])
+        ax.plot(spiral.real, spiral.imag)
+        ax.grid()
+
+    plt.figure(figsize=(11, 3.5))
+    ax = plt.subplot(1, 3, 1)
+    [rad_start, rad_end, num_rot, angle_start, N] = [0.2, 2, 10, 0, 501]
+    spiral = generate_spiral(rad_start, rad_end, num_rot, angle_start, N)
+    plot_spiral(ax, spiral, rad_start, rad_end, num_rot, angle_start, N)
+
+    ax = plt.subplot(1, 3, 2)
+    [rad_start, rad_end, num_rot, angle_start, N] = [0.5, 1, 3.75, 90, 501]
+    spiral = generate_spiral(rad_start, rad_end, num_rot, angle_start, N)
+    plot_spiral(ax, spiral, rad_start, rad_end, num_rot, angle_start, N)
+
+    ax = plt.subplot(1, 3, 3)
+    [rad_start, rad_end, num_rot, angle_start, N] = [0.01, 10, 20, 0, 1001]
+    spiral = generate_spiral(rad_start, rad_end, num_rot, angle_start, N)
+    plot_spiral(ax, spiral, rad_start, rad_end, num_rot, angle_start, N)
+
+    plt.tight_layout()
