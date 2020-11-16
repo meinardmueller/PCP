@@ -116,10 +116,10 @@ def exercise_polynomial(show_result=True):
     vis_root(p, ax[0, 2], '$p(z)=z^8-1$')
 
     p = np.array([1, 1, 1, 0, 0, 0, 0, 0, 0])
-    vis_root(p, ax[1, 0], '$p(z)=z^8 + z^7 + z^5$')
+    vis_root(p, ax[1, 0], '$p(z)=z^8 + z^7 + z^6$')
 
     p = np.array([1, 1, 1, 0, 0, 0, 0, 0, 0.000001])
-    vis_root(p, ax[1, 1], '$p(z)=z^8 + z^7 + z^5 + 0.000001$')
+    vis_root(p, ax[1, 1], '$p(z)=z^8 + z^7 + z^6 + 0.000001$')
 
     p = np.array([1, -2j, 2 + 4j, 3])
     vis_root(p, ax[1, 2], '$p(z)=z^3 -2iz^2 + (2+4i)z + 3 $')
