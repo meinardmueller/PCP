@@ -17,8 +17,8 @@ def add(a, b=0, c=0):
 
     Args:
         a: first number
-        b: second number (default: 0)
-        c: third number (default: 0)
+        b: second number (Default value = 0)
+        c: third number (Default value = 0)
 
     Returns:
         Sum of a, b and c
