@@ -14,7 +14,8 @@
 !*/
 
 # if the files to be tracked are in subdirectories
-!LibPCP/*.py
+!libpcp/*.py
+!tools/*.py
 !data/PCP_fig_erlangen.png
 !data/PCP_fig_matmult.png
 !data_layout/PCP_License.png
