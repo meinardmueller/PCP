@@ -22,7 +22,7 @@ The PCP notebooks may be executed using [Google colab](https://colab.research.go
 
 https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb
 
-For the other notebooks, clone the PCP repository to get access to data and the functions in LibPCP. To this end, for each colab session, include and execute a code cell at the beginning of the notebook containing the following lines:
+For the other notebooks, clone the PCP repository to get access to data and the functions in `libpcp`. To this end, for each colab session, include and execute a code cell at the beginning of the notebook containing the following lines:
 
 ```
 %%bash

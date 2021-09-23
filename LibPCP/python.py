@@ -1,15 +1,21 @@
 """
-Source: PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
-Module: LibPCP.python
+Module: libpcp.python
 Author: Meinard Mueller, International Audio Laboratories Erlangen
 License: The MIT license, https://opensource.org/licenses/MIT
+This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
 """
+
 import copy
 
 
 def exercise_list(show_result=True):
     """Exercise 1: Basic List Manipulations
-       Notebook: PCP_python.ipynb"""
+
+    Notebook: PCP_python.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -34,7 +40,12 @@ def exercise_list(show_result=True):
 
 def exercise_dict(show_result=True):
     """Exercise 2: Basic Dictionary Manipulations
-       Notebook: PCP_python.ipynb"""
+
+    Notebook: PCP_python.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 

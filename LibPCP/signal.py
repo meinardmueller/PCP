@@ -1,8 +1,8 @@
 """
-Source: PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
-Module: LibPCP.signal
+Module: libpcp.signal
 Author: Meinard Mueller, International Audio Laboratories Erlangen
 License: The MIT license, https://opensource.org/licenses/MIT
+This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
 """
 
 import numpy as np
@@ -16,11 +16,11 @@ def generate_sinusoid(dur=1, amp=1, freq=1, phase=0, Fs=100):
     Notebook: PCP_signal.ipynb
 
     Args:
-        dur: Duration (in seconds)
-        amp: Amplitude of sinusoid
-        freq: Frequency of sinusoid
-        phase: Phase of sinusoid
-        Fs: Sampling rate
+        dur: Duration in seconds (Default value = 1)
+        amp: Amplitude of sinusoid (Default value = 1)
+        freq: Frequency of sinusoid (Default value = 1)
+        phase: Phase of sinusoid (Default value = 0)
+        Fs: Sampling rate (Default value = 100)
 
     Returns:
         x: Signal
@@ -38,8 +38,8 @@ def generate_example_signal(dur=1, Fs=100):
     Notebook: PCP_signal.ipynb
 
     Args:
-        dur: Duration (in seconds) of signal to be generated
-        Fs: Sampling rate
+        dur: Duration (in seconds) of signal to be generated (Default value = 1)
+        Fs: Sampling rate (Default value = 100)
 
     Returns:
         x: Signal
@@ -62,7 +62,7 @@ def sampling_equidistant(x_1, t_1, Fs_2, dur=None):
         x_1: Signal to be interpolated and sampled
         t_1: Time axis (in seconds) of x_1
         Fs_2: Sampling rate used for equidistant sampling
-        dur: Duration (in seconds) of sampled signal
+        dur: Duration (in seconds) of sampled signal (Default value = None)
 
     Returns:
         x_2: Sampled signal
@@ -98,12 +98,22 @@ def reconstruction_sinc(x, t, t_sinc):
 
 def plot_signal_reconstructed(t_1, x_1, t_2, x_2, t_sinc, x_sinc, figsize=(8, 2.2)):
     """Plotting three signals
+
     Notebook: PCP_signal.ipynb
+
+    Args:
+        t_1: Time axis of original signal
+        x_1: Original signal
+        t_2: Time axis for sampled signal
+        x_2: Sampled signal
+        t_sinc: Time axis for reconstructed signal
+        x_sinc: Reconstructed signal
+        figsize: Figure size (Default value = (8, 2.2))
     """
     plt.figure(figsize=figsize)
     plt.plot(t_1, x_1, 'k', linewidth=1, linestyle='dotted', label='Orignal signal')
     plt.stem(t_2, x_2, linefmt='r:', markerfmt='r.', basefmt='None', label='Samples', use_line_collection=True)
-    plt.plot(t_1, x_sinc, 'b', label='Reconstructed signal')
+    plt.plot(t_sinc, x_sinc, 'b', label='Reconstructed signal')
     plt.title(r'Sampling rate $F_\mathrm{s} = %.0f$' % (1/t_2[1]))
     plt.xlabel('Time (seconds)')
     plt.ylim([-1.8, 1.8])
@@ -115,7 +125,17 @@ def plot_signal_reconstructed(t_1, x_1, t_2, x_2, t_sinc, x_sinc, figsize=(8, 2.
 
 def plot_interference(t, x1, x2, figsize=(8, 2), xlim=None, ylim=None, title=''):
     """Plotting two signals and its superposition
+
     Notebook: PCP_signal.ipynb
+
+    Args:
+        t: Time axis
+        x1: Signal 1
+        x2: Signal 2
+        figsize: Figure size (Default value = (8, 2))
+        xlim: x-Axis limits (Default value = None)
+        ylim: y-Axis limits (Default value = None)
+        title: Figure title (Default value = '')
     """
     plt.figure(figsize=figsize)
     plt.plot(t, x1, color='gray', linewidth=1.0, linestyle='-', label='x1')
@@ -137,7 +157,12 @@ def plot_interference(t, x1, x2, figsize=(8, 2), xlim=None, ylim=None, title='')
 
 def exercise_beating(show_result=True):
     """Exercise 1: Beating
-    Notebook: PCP_signal.ipynb"""
+
+    Notebook: PCP_signal.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -167,7 +192,12 @@ def exercise_beating(show_result=True):
 
 def exercise_aliasing_sinus(show_result=True):
     """Exercise 2: Aliasing with Sinsuoids
-       Notebook: PCP_signal.ipynb"""
+
+    Notebook: PCP_signal.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -191,7 +221,12 @@ def exercise_aliasing_sinus(show_result=True):
 
 def exercise_aliasing_visual(show_result=True):
     """Exercise 3: Visual Aliasing
-       Notebook: PCP_signal.ipynb"""
+
+    Notebook: PCP_signal.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 

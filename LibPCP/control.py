@@ -1,8 +1,8 @@
 """
-Source: PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
-Module: LibPCP.control
+Module: libpcp.control
 Author: Meinard Mueller, International Audio Laboratories Erlangen
 License: The MIT license, https://opensource.org/licenses/MIT
+This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
 """
 
 import numpy as np
@@ -15,8 +15,8 @@ def add(a, b=0, c=0):
 
     Args:
         a: first number
-        b: second number (default: 0)
-        c: third number (default: 0)
+        b: second number (Default value = 0)
+        c: third number (Default value = 0)
 
     Returns:
         Sum of a, b and c
@@ -32,7 +32,7 @@ def add_and_diff(a, b=0):
 
     Args:
         a: first number
-        b: second number (default: 0)
+        b: second number (Default value = 0)
 
     Returns:
         first: a + b
@@ -43,7 +43,15 @@ def add_and_diff(a, b=0):
 
 def sum_n(n):
     """Function that sums up the integers from 1 to n
-    Notebook: PCP_control.ipynb"""
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        n: Integer number
+
+    Returns:
+        s: Sum of integers from 1 to n
+    """
     s = 0
     for n in range(1, n+1):
         s = s + n
@@ -51,22 +59,43 @@ def sum_n(n):
 
 
 def sum_n_numpy(n):
-    """Function that sums up the integers from 1 to n  using mumpy
-    Notebook: PCP_control.ipynb"""
+    """Function that sums up the integers from 1 to n  using numpy
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        n: Integer number
+
+    Returns:
+        s: Sum of integers from 1 to n
+    """
     s = np.sum(np.arange(1, n+1))
     return s
 
 
 def sum_n_math(n):
     """Function that sums up the integers from 1 to n using the idea by Gauss
-    Notebook: PCP_control.ipynb"""
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        n: Integer number
+
+    Returns:
+        s: Sum of integers from 1 to n
+    """
     s = n * (n + 1) // 2
     return s
 
 
 def exercise_give_number(show_result=True):
-    """Exercise 3: Mandelbrot Set (more fancy version)
-       Notebook: PCP_control.ipynb"""
+    """Exercise 1: Function that provides a specified number
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -76,7 +105,7 @@ def exercise_give_number(show_result=True):
         Notebook: PCP_control.ipynb
 
         Args:
-            s: string specifying number
+            s: string specifying number (Default value = 'nan')
 
         Returns:
             number: specified number
@@ -101,7 +130,12 @@ def exercise_give_number(show_result=True):
 
 def exercise_row_mean(show_result=True):
     """Exercise 2: Function for Computing Row Mean
-       Notebook: PCP_control.ipynb"""
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -130,15 +164,20 @@ def exercise_row_mean(show_result=True):
 
 
 def exercise_odd(show_result=True):
-    """Exercise 3: Mandelbrot Set (more fancy version)
-       Notebook: PCP_control.ipynb"""
+    """Exercise 3: Function for Computing Odd-Index Vector
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
     def vector_odd_index(x):
-        """Exercise 3: Function for Computing Odd-Index Vector
+        """Compute Odd-Index Vector
 
-        Notebook: control.ipynb
+        Notebook: PCP_control.ipynb
 
         Args:
             x: array
@@ -165,12 +204,17 @@ def exercise_odd(show_result=True):
 
 def exercise_isprime(show_result=True):
     """Exercise 4: Primality Test
-       Notebook: PCP_control.ipynb"""
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
     def isprime(n):
-        """Function that test if number is prime
+        """Function that tests if number is prime
 
         Notebook: PCP_control.ipynb
 
@@ -206,12 +250,26 @@ def exercise_isprime(show_result=True):
 
 def exercise_root(show_result=True):
     """Exercise 5: Function for Root Finding
-       Notebook: PCP_control.ipynb"""
+
+    Notebook: PCP_control.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
     def f(x):
-        """A continuous function"""
+        """A continuous function
+
+        Notebook: PCP_control.ipynb
+
+        Args:
+            x: array or float
+
+        Returns:
+            f(x) = x**2-2
+        """
         return x**2-2
 
     def search_root(f, a, b, thresh=10**(-5)):
@@ -223,7 +281,7 @@ def exercise_root(show_result=True):
             f: Function
             a: Interval start
             b: Interval end
-            thresh: Threshold for stopping search
+            thresh: Threshold for stopping search (Default value = 10**(-5))
 
         Returns:
             Found root or None (in case initial condition is not fulfilled)

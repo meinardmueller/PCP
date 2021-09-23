@@ -1,8 +1,8 @@
 """
-Source: PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
-Module: LibPCP.vis
+Module: libpcp.vis
 Author: Meinard Mueller, International Audio Laboratories Erlangen
 License: The MIT license, https://opensource.org/licenses/MIT
+This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
 """
 
 import numpy as np
@@ -12,7 +12,12 @@ import matplotlib.image as mpimg
 
 def exercise_vis1D(show_result=True):
     """Exercise 1: Plotting 1D Function
-       Notebook: PCP_vis.ipynb"""
+
+    Notebook: PCP_vis.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -71,11 +76,24 @@ def exercise_vis1D(show_result=True):
 
 def exercise_circle(show_result=True):
     """Exercise 2: Plotting Circle
-       Notebook: PCP_vis.ipynb"""
+
+    Notebook: PCP_vis.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
     def plot_circle(Fs, ax):
+        """Plot circle
+
+        Notebook: PCP_vis.ipynb
+
+        Args:
+            Fs: Sampling rate
+            ax: Axis handle
+        """
         t = np.arange(Fs+1) / Fs
         f_1 = np.cos(2*np.pi*t)
         f_2 = np.sin(2*np.pi*t)
@@ -90,7 +108,12 @@ def exercise_circle(show_result=True):
 
 def exercise_logaxis(show_result=True):
     """Exercise 3: Plotting with Logarithmic Axes
-       Notebook: PCP_vis.ipynb"""
+
+    Notebook: PCP_vis.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -130,7 +153,12 @@ def exercise_logaxis(show_result=True):
 
 def exercise_plot3d(show_result=True):
     """Exercise 4: Plotting 3D Surface (sinc)
-       Notebook: PCP_vis.ipynb"""
+
+    Notebook: PCP_vis.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -150,7 +178,12 @@ def exercise_plot3d(show_result=True):
 
 def exercise_erlangen(show_result=True):
     """Exercise 5: Photo Manipulation (Erlangen)
-       Notebook: PCP_vis.ipynb"""
+
+    Notebook: PCP_vis.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 

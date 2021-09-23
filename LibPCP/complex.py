@@ -1,9 +1,10 @@
 """
-Source: PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
-Module: LibPCP.complex
+Module: libpcp.complex
 Author: Meinard Mueller, International Audio Laboratories Erlangen
 License: The MIT license, https://opensource.org/licenses/MIT
+This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
 """
+
 import os
 import numpy as np
 from matplotlib import pyplot as plt
@@ -12,7 +13,14 @@ from matplotlib.colors import LinearSegmentedColormap
 
 def generate_figure(figsize=(2, 2), xlim=[0, 1], ylim=[0, 1]):
     """Generate figure for plotting complex numbers
-       Notebook: PCP_complex.ipynb"""
+
+    Notebook: PCP_complex.ipynb
+
+    Args:
+       figsize: Width, height in inches (Default value = (2, 2))
+       xlim: Limits for x-axis (Default value = [0, 1])
+       ylim: Limits for y-axis (Default value = [0, 1])
+    """
     plt.figure(figsize=figsize)
     plt.grid()
     plt.xlim(xlim)
@@ -28,9 +36,9 @@ def plot_vector(c, color='k', start=0, linestyle='-'):
 
     Args:
         c: Complex number
-        color: Color of arrow
-        start: Complex number encoding the start position
-        linestyle: Linestyle of arrow
+        color: Color of arrow (Default value = 'k')
+        start: Complex number encoding the start position (Default value = 0)
+        linestyle: Linestyle of arrow (Default value = '-')
 
     Returns:
         plt.arrow: matplotlib.patches.FancyArrow
@@ -42,7 +50,16 @@ def plot_vector(c, color='k', start=0, linestyle='-'):
 
 def plot_polar_vector(c, label=None, color=None, start=0, linestyle='-'):
     """Plot arrow in polar plot
-    Notebook: PCP_complex.ipynb"""
+
+    Notebook: PCP_complex.ipynb
+
+    Args:
+        c: Complex number
+        label: Label of arrow (Default value = None)
+        color: Color of arrow (Default value = None)
+        start: Complex number encoding the start position (Default value = 0)
+        linestyle: Linestyle of arrow (Default value = '-')
+    """
     # plot line in polar plane
     line = plt.polar([np.angle(start), np.angle(c)], [np.abs(start), np.abs(c)], label=label,
                      color=color, linestyle=linestyle)
@@ -55,7 +72,12 @@ def plot_polar_vector(c, label=None, color=None, start=0, linestyle='-'):
 
 def exercise_complex(show_result=True):
     """Exercise 1: Rotate Complex Number
-       Notebook: PCP_complex.ipynb"""
+
+    Notebook: PCP_complex.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -74,6 +96,14 @@ def exercise_complex(show_result=True):
     plt.legend([v1, v2, v3], ['$c$', r'$\overline{c}$', '$c^{-1}$'])
 
     def rotate_complex(c, r):
+        """Rotate complex number
+
+        Notebook: PCP_complex.ipynb
+
+        Args:
+            c: Complex number
+            r: Angle in degrees
+        """
         c_angle_rad = np.angle(c) - np.deg2rad(r)
         c_abs = np.abs(c)
         a = c_abs * np.cos(c_angle_rad)
@@ -92,11 +122,25 @@ def exercise_complex(show_result=True):
 
 def exercise_polynomial(show_result=True):
     """Exercise 2: Roots of Polynomial
-       Notebook: PCP_complex.ipynb"""
+
+    Notebook: PCP_complex.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
     def vis_root(p, ax, title=''):
+        """Visualize roots of polynomial
+
+        Notebook: PCP_complex.ipynb
+
+        Args:
+            p: Polynomial coefficients
+            ax: Axis handle
+            title: Plot title (Default value = '')
+        """
         poly_root = np.roots(p)
         ax.scatter(np.real(poly_root), np.imag(poly_root), color='red')
         ax.grid()
@@ -129,7 +173,12 @@ def exercise_polynomial(show_result=True):
 
 def exercise_mandelbrot(show_result=True):
     """Exercise 3: Mandelbrot Set
-       Notebook: PCP_complex.ipynb"""
+
+    Notebook: PCP_complex.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+    """
     if show_result is False:
         return
 
@@ -167,7 +216,13 @@ def exercise_mandelbrot(show_result=True):
 
 def exercise_mandelbrot_fancy(show_result=True, save_file=False):
     """Exercise 3: Mandelbrot Set (more fancy version)
-       Notebook: PCP_complex.ipynb"""
+
+    Notebook: PCP_complex.ipynb
+
+    Args:
+        show_result: Show result (Default value = True)
+        save_file: Save figure to .png (Default value = False)
+    """
     if show_result is False:
         return
 
@@ -205,6 +260,6 @@ def exercise_mandelbrot_fancy(show_result=True, save_file=False):
     extent = [a_min, a_max, b_min, b_max]
     plt.imshow(np.log(np.log(mandel_iter)), origin='lower', cmap='YlOrBr_r', extent=extent)
     plt.imshow(mandel, origin='lower', cmap=color_wb, extent=extent)
-    if save_file==True:
+    if save_file is True:
         output_path_filename = os.path.join('.', 'output', 'Mandelbrot.png')
         plt.savefig(output_path_filename)
