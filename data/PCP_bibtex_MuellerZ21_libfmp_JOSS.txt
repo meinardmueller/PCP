@@ -1,0 +1,11 @@
+@article{MuellerZ21_libfmp_JOSS,
+  author    = {Meinard M{\"u}ller and Frank Zalkow},
+  title     = {{libfmp}: {A} {P}ython Package for Fundamentals of Music Processing},
+  journal   = {Journal of Open Source Software ({JOSS})},
+  volume    = {6},
+  number    = {63},
+  year      = {2021},
+  pages     = {3326:1--5},
+  doi       = {10.21105/joss.03326},
+  url-demo = {https://github.com/meinardmueller/libfmp}
+}

@@ -1,0 +1,10 @@
+@article{Mueller21_FMP_Signals,
+author    = {Meinard M{\"u}ller},
+title     = {An Educational Guide Through the {FMP} Notebooks for Teaching and Learning Fundamentals of Music Processing},
+journal   = {Signals},
+volume    = {2},
+number    = {2},
+pages     = {245--285},
+year      = {2021},
+doi       = {10.3390/signals2020018}
+}

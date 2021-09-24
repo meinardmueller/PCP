@@ -1,0 +1,12 @@
+@book{Mueller21_FMP_SPRINGER,
+author    = {Meinard M\"{u}ller},
+title     = {Fundamentals of Music Processing -- Using Python and Jupyter Notebooks},
+type      = {Monograph},
+year      = {2021},
+isbn      = {978-3-030-69807-2},
+publisher = {Springer Verlag},
+edition   = {2nd},
+pages     = {1--495},
+doi       = {10.1007/978-3-030-69808-9},
+url-details = {http://www.music-processing.de}
+}

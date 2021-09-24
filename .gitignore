@@ -16,10 +16,14 @@
 # if the files to be tracked are in subdirectories
 !libpcp/*.py
 !tools/*.py
+!data/*.txt
+!data/2021_MuellerR_PCP_JOSE_tobesubmitted.pdf
 !data/PCP_fig_erlangen.png
 !data/PCP_fig_matmult.png
 !data_layout/PCP_License.png
 !data_layout/PCP_Teaser.png
+!data_layout/PCP_MIT_License_OSIApproved.png
+!data_layout/PCP_MIT_License_OSIApproved_text.png
 !*/.gitkeep
 
 # But ignore these folders/files

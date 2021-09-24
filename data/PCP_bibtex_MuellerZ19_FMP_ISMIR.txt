@@ -1,0 +1,8 @@
+@inproceedings{MuellerZ19_FMP_ISMIR,
+  author    = {Meinard M{\"u}ller and Frank Zalkow},
+  title     = {{FMP} Notebooks: Educational Material for Teaching and Learning Fundamentals of Music Processing},
+  booktitle = {Proceedings of the International Conference on Music Information Retrieval ({ISMIR})},
+  address   = {Delft, The Netherlands},
+  month     = {November},
+  year      = {2019},
+} 

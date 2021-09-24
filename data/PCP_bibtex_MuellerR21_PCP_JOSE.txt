@@ -1,0 +1,11 @@
+@article{MuellerR21_PCP_JOSE,
+  author    = {Meinard M{\"u}ller and Sebastian Rosenzweig},
+  title     = {{PCP} Notebooks: {A} Preparation Course for {P}ython with a Focus on Signal Processing},
+  journal   = {Journal of Open Source Education ({JOSE})},
+  volume    = {},
+  number    = {},
+  year      = {},
+  pages     = {},
+  doi       = {},
+  url-demo = {https://github.com/meinardmueller/PCP}
+}

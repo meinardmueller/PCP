@@ -1,0 +1,10 @@
+@article{MuellerMK21_LearningMusicSP_IEEE-SPM,
+  author    = {Meinard M{\"u}ller and Brian McFee and Katherine Kinnaird},
+  title     = {Interactive Learning of Signal Processing Through Music: {M}aking {F}ourier Analysis Concrete for Students},
+  journal   = {{IEEE} Signal Processing Magazine},
+  volume    = {38},
+  number    = {3},
+  pages     = {73--84},
+  year      = {2021},
+  doi 		= {10.1109/MSP.2021.3052181}
+}

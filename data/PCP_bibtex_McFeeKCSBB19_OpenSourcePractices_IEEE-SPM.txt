@@ -1,0 +1,10 @@
+@article{McFeeKCSBB19_OpenSourcePractices_IEEE-SPM,
+  author    = {Brian McFee and Jong Wook Kim and Mark Cartwright and Justin Salamon and Rachel M. Bittner and Juan Pablo Bello},
+  title     = {Open-Source Practices for Music Signal Processing Research: Recommendations for Transparent, Sustainable, and Reproducible Audio Research},
+  journal   = {{IEEE} Signal Processing Magazine},
+  volume    = {36},
+  number    = {1},
+  pages     = {128--137},
+  year      = {2019},
+  doi       = {10.1109/MSP.2018.2875349}
+}
