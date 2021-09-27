@@ -60,7 +60,7 @@ def exercise_matrix_operation(show_result=True):
 
     D = np.array([[2, 0, 2], [-1, 5, 10], [-1, 0, 9]])
     print('Maximum of matrix D:', np.max(D))
-    print('Row and column index of maximizing entry:', np.unravel_index(np.argmax(D), D.shape))
+    print('Row and column index of maximum entry:', np.unravel_index(np.argmax(D), D.shape))
     # np.argmax returns a flat index which has to be converted (e.g. using np.unravel_index)
     # to an index tuple (rows, columns)
 
