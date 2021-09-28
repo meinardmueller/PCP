@@ -160,7 +160,7 @@ def exercise_row_mean(show_result=True):
 
     A = np.array([[1, 2, 6], [5, 5, 2]])
     print('Input matrix:', A, sep='\n')
-    print('Vector contain the row means: ', row_mean(A))
+    print('Vector containing the row means: ', row_mean(A))
 
 
 def exercise_odd(show_result=True):
