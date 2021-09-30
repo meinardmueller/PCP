@@ -16,11 +16,11 @@ def generate_sinusoid(dur=1, amp=1, freq=1, phase=0, Fs=100):
     Notebook: PCP_signal.ipynb
 
     Args:
-        dur: Duration in seconds (Default value = 1)
+        dur: Duration (in seconds) of sinusoid (Default value = 1)
         amp: Amplitude of sinusoid (Default value = 1)
-        freq: Frequency of sinusoid (Default value = 1)
-        phase: Phase of sinusoid (Default value = 0)
-        Fs: Sampling rate (Default value = 100)
+        freq: Frequency (in Hertz) of sinusoid (Default value = 1)
+        phase: Phase (relative to interval [0,1)) of sinusoid (Default value = 0)
+        Fs: Sampling rate (in samples per second) (Default value = 100)
 
     Returns:
         x: Signal
@@ -38,8 +38,8 @@ def generate_example_signal(dur=1, Fs=100):
     Notebook: PCP_signal.ipynb
 
     Args:
-        dur: Duration (in seconds) of signal to be generated (Default value = 1)
-        Fs: Sampling rate (Default value = 100)
+        dur: Duration (in seconds) of signal (Default value = 1)
+        Fs: Sampling rate (in samples per second) (Default value = 100)
 
     Returns:
         x: Signal
