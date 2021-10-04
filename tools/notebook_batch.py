@@ -18,7 +18,8 @@ if __name__ == '__main__':
     if args.mode == 'execute':
         opt = '--ExecutePreprocessor.timeout=3600 --to notebook --execute --inplace'
     if args.mode == 'html':
-        opt = '--to html --template classic'
+        # opt = '--to html --template classic'
+        opt = '--to html'
 
     for dirpath, dirnames, filenames in os.walk(args.directory):
 
