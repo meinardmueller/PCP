@@ -1,3 +1,8 @@
+"""
+Author: Frank Zalkow, International Audio Laboratories Erlangen
+This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
+"""
+
 import argparse
 import os
 
