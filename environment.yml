@@ -1,19 +1,20 @@
-name: PCP
+name: PCP  # the name of the environment
 
-channels:
+channels:  # conda channels from which packages are downloaded
   - defaults
   - conda-forge
 
 dependencies:
-  - python=3.7.*
-  - pip=19.2.*
-  - numpy=1.17.*
-  - matplotlib=3.1.*
+  - python=3.7.*  # Plain Python
+  - pip=19.2.*  # Package installer for Python
+  - numpy=1.17.*  # NumPy
+  - matplotlib=3.1.*  # Matplotlib
+# Jupyter Notebook dependecies:
   - ipython=7.8.*
   - jupyter=1.0.*
-  - jupyter_client=6.1.*
-  - jupyter_contrib_nbextensions=0.5.*
-  - nbconvert=5.6.*
-  - pip:
-    - nbstripout==0.3.*
-    - notebook>=6.4.4
+  - jupyter_client=6.1.*  # prevents server error
+  - jupyter_contrib_nbextensions=0.5.*  # spell checker
+  - nbconvert=5.6.*  # HTML export
+  - pip:  # Packages that are installed via pip
+    - nbstripout==0.3.*  # strip notebook output
+    - notebook>=6.4.4  # fixes Markdown table rendering
