@@ -18,7 +18,7 @@ jupyter notebook
 ### Google colab
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb)
 
-The PCP notebooks may be executed using [Google colab](https://colab.research.google.com/). However, this needs some preparation. First, you need to be logged in with a Google account. The starting notebook can be accesed via:
+The PCP notebooks may be executed using [Google colab](https://colab.research.google.com/). However, this needs some preparation. First, you need to be logged in with a Google account. The starting notebook can be accessed via:
 
 https://colab.research.google.com/github/meinardmueller/PCP/blob/master/PCP.ipynb
 
