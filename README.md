@@ -34,7 +34,7 @@ rm -rd PCP_temp
 ### Binder
 [![Open In Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/meinardmueller/PCP/master)
 
-One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. This clones the repository and automatically creates a conda environment. This may take several (maybe even up to ten) minutes) when starting binder.
+One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. This clones the repository and automatically creates a conda environment. This may take several (maybe even up to ten) minutes when starting binder.
 
 https://mybinder.org/v2/gh/meinardmueller/PCP/master
 
