@@ -9,7 +9,7 @@ dependencies:
   - pip=19.2.*  # Package installer for Python
   - numpy=1.17.*  # NumPy
   - matplotlib=3.1.*  # Matplotlib
-# Jupyter Notebook dependecies:
+# Jupyter Notebook dependencies:
   - ipython=7.8.*
   - jupyter=1.0.*
   - jupyter_client=6.1.*  # prevents server error
