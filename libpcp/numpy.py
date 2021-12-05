@@ -39,7 +39,7 @@ def exercise_numpy_array(show_result=True):
     print(d, 'Type:', type(d))
     d = reversed(c)
     print(d, 'Type:', type(d))
-    d = list(reversed(c))
+    d = reversed(c)
     print(d, 'Type:', type(d))
 
 
