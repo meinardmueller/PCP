@@ -64,14 +64,14 @@ def exercise_matrix_operation(show_result=True):
     # np.argmax returns a flat index which has to be converted (e.g. using np.unravel_index)
     # to an index tuple (rows, columns)
 
-    v = np.array([[3, 2, 1]])
-    w = np.array([[6, 5, 4]]).T
+    v = np.array([3, 2, 1])
+    w = np.array([6, 5, 4])
     print('vw = ', np.dot(v, w))
-    print('wv = ', np.dot(w, v), sep='\n')
+    print('wv = ', np.outer(w, v), sep='\n')
     # np.multiply: element-wise multiplication, np.dot: matrix multiplication
 
     A = np.array([[1, 2], [3, 5]])
-    v = np.array([[1, 4]]).T
+    v = np.array([1, 4])
     print('Inverse(A) = ', np.linalg.inv(A), sep='\n')
     print('Inverse(A)v = ', np.dot(np.linalg.inv(A), v), sep='\n')
 
