@@ -39,7 +39,7 @@ One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. T
 https://mybinder.org/v2/gh/meinardmueller/PCP/master
 
 ## Contributing
-We are happy for suggestions and contributions. However, to facilitate the synchronization, we would be grateful for either directly contacting us via email (meinard.mueller@audiolabs-erlangen.de) or for creating an issue](https://github.com/meinardmueller/PCP/issues) in our GitHub repository. Please do not submit a pull request without prior consultation with us.
+We are happy for suggestions and contributions. However, to facilitate the synchronization, we would be grateful for either directly contacting us via email (meinard.mueller@audiolabs-erlangen.de) or for creating [an issue](https://github.com/meinardmueller/PCP/issues) in our GitHub repository. Please do not submit a pull request without prior consultation with us.
 
 ## Acknowledgements
 
