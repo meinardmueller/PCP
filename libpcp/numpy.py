@@ -11,7 +11,7 @@ import numpy as np
 def exercise_numpy_array(show_result=True):
     """Exercise 1: NumPy Array Manipulations
 
-    Notebook: PCP_numpy.ipynb
+    Notebook: PCP_03_numpy.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -46,7 +46,7 @@ def exercise_numpy_array(show_result=True):
 def exercise_matrix_operation(show_result=True):
     """Exercise 2: Matrix Operations
 
-    Notebook: PCP_numpy.ipynb
+    Notebook: PCP_03_numpy.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -79,7 +79,7 @@ def exercise_matrix_operation(show_result=True):
 def exercise_numpy_math_function(show_result=True):
     """Exercise 3: Mathematical NumPy Functions
 
-    Notebook: PCP_numpy.ipynb
+    Notebook: PCP_03_numpy.ipynb
 
     Args:
         show_result: Show result (Default value = True)

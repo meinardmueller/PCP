@@ -9,6 +9,7 @@
 !README.md
 !LICENSE
 !*.ipynb
+!*.html
 
 # ...even if they are in subdirectories
 !*/
@@ -30,4 +31,3 @@
 
 # But ignore these folders/files
 .ipynb_checkpoints
-

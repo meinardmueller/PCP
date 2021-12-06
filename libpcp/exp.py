@@ -14,7 +14,7 @@ from libpcp.complex import plot_vector
 def exp_approx_Euler(x_min=0, x_max=2, x_delta=0.01, f_0=1):
     """Approximation of exponential function using Euler's method
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         x_min: Start of input interval (Default value = 0)
@@ -38,7 +38,7 @@ def exp_approx_Euler(x_min=0, x_max=2, x_delta=0.01, f_0=1):
 def plot_vector(c, color='k', start=0, linestyle='-'):
     """Plotting complex number as vector
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         c: Complex number
@@ -54,7 +54,7 @@ def plot_vector(c, color='k', start=0, linestyle='-'):
 def plot_root_unity(N, ax):
     """Plotting N-th root of unity into figure with axis
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         N: Root number
@@ -85,7 +85,7 @@ def plot_root_unity(N, ax):
 def exercise_approx_exp(show_result=True):
     """Exercise 1: Approximation of Exponential Function via Power Series
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -96,7 +96,7 @@ def exercise_approx_exp(show_result=True):
     def exp_power_series(z, N):
         """Compute power series for exponential function
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             z: Number
@@ -117,7 +117,7 @@ def exercise_approx_exp(show_result=True):
     def exp_limit_compound(z, N):
         """Compute power series for exponential function
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             z: Number
@@ -149,7 +149,7 @@ def exercise_approx_exp(show_result=True):
 def exercise_gaussian(show_result=True):
     """Exercise 2: Gaussian Function
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -160,7 +160,7 @@ def exercise_gaussian(show_result=True):
     def compute_gaussian_1D(X, mu=0, sigma=1):
         """Compute Gaussian function
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             X: array
@@ -205,7 +205,7 @@ def exercise_gaussian(show_result=True):
 def exercise_spiral(show_result=True):
     """Exercise 3: Spiral Generation
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -216,7 +216,7 @@ def exercise_spiral(show_result=True):
     def generate_spiral(rad_start=0.5, rad_end=2, num_rot=5, angle_start=0, N=201):
         """Generate spiral
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             rad_start: Radius to start with (Default value = 0.5)
@@ -238,7 +238,7 @@ def exercise_spiral(show_result=True):
     def plot_spiral(ax, spiral, rad_end):
         """Plot spiral
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             ax: Axis handle

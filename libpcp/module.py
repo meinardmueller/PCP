@@ -13,7 +13,7 @@ a, b, c = 1, 2, 3
 def add(a, b=0, c=0):
     """Function to add three numbers
 
-    Notebook: PCP_module.ipynb
+    Notebook: PCP_10_module.ipynb
 
     Args:
         a: first number
@@ -31,7 +31,7 @@ def add(a, b=0, c=0):
 def test_function_init(string_input = string_init):
     """Test function specified in the __init__.py file
 
-    Notebook: PCP_module.ipynb
+    Notebook: PCP_10_module.ipynb
 
     Args:
         string_input: Input string (Default value = string_init)

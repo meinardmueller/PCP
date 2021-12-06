@@ -14,7 +14,7 @@ from matplotlib.colors import LinearSegmentedColormap
 def generate_figure(figsize=(2, 2), xlim=[0, 1], ylim=[0, 1]):
     """Generate figure for plotting complex numbers
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
        figsize: Width, height in inches (Default value = (2, 2))
@@ -32,7 +32,7 @@ def generate_figure(figsize=(2, 2), xlim=[0, 1], ylim=[0, 1]):
 def plot_vector(c, color='k', start=0, linestyle='-'):
     """Plot arrow corresponding to difference of two complex numbers
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
         c: Complex number
@@ -51,7 +51,7 @@ def plot_vector(c, color='k', start=0, linestyle='-'):
 def plot_polar_vector(c, label=None, color=None, start=0, linestyle='-'):
     """Plot arrow in polar plot
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
         c: Complex number
@@ -73,7 +73,7 @@ def plot_polar_vector(c, label=None, color=None, start=0, linestyle='-'):
 def exercise_complex(show_result=True):
     """Exercise 1: Rotate Complex Number
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -98,7 +98,7 @@ def exercise_complex(show_result=True):
     def rotate_complex(c, r):
         """Rotate complex number
 
-        Notebook: PCP_complex.ipynb
+        Notebook: PCP_06_complex.ipynb
 
         Args:
             c: Complex number
@@ -123,7 +123,7 @@ def exercise_complex(show_result=True):
 def exercise_polynomial(show_result=True):
     """Exercise 2: Roots of Polynomial
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -134,7 +134,7 @@ def exercise_polynomial(show_result=True):
     def vis_root(p, ax, title=''):
         """Visualize roots of polynomial
 
-        Notebook: PCP_complex.ipynb
+        Notebook: PCP_06_complex.ipynb
 
         Args:
             p: Polynomial coefficients
@@ -174,7 +174,7 @@ def exercise_polynomial(show_result=True):
 def exercise_mandelbrot(show_result=True):
     """Exercise 3: Mandelbrot Set
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -217,7 +217,7 @@ def exercise_mandelbrot(show_result=True):
 def exercise_mandelbrot_fancy(show_result=True, save_file=False):
     """Exercise 3: Mandelbrot Set (more fancy version)
 
-    Notebook: PCP_complex.ipynb
+    Notebook: PCP_06_complex.ipynb
 
     Args:
         show_result: Show result (Default value = True)
