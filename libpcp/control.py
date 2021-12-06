@@ -233,13 +233,13 @@ def exercise_isprime(show_result=True):
         return True
 
     for n in [1, 17, 1221, 1223]:
-        print('n = %d, isprime = %r' % (n, isprime(n)))
+        print(f'n = {n}, isprime = {isprime(n)}')
 
     num_max = 20
     counter = 0
     n = 1
 
-    print('List of first %d prime numbers:' % num_max)
+    print(f'List of first {num_max} prime numbers:')
     while counter < num_max:
         n += 1
         result = isprime(n)
@@ -287,11 +287,11 @@ def exercise_root(show_result=True):
             Found root or None (in case initial condition is not fulfilled)
         """
         if a >= b:
-            print('a = %.6f, b = %.6f' % (a, b))
+            print(f'a = {a:.6f}, b = {b:.6f}')
             print('Interval not valid.')
             return np.nan
         elif f(a)*f(b) > 0:
-            print('a = %.6f, b = %.6f, f(a) = %.6f, f(b) = %.6f' % (a, b, f(a), f(b)))
+            print(f'a = {a:.6f}, b = {b:.6f}, f(a) = {f(a):.6f}, f(b) = {f(b):.6f}')
             print('Sign condition not fulfilled')
             return np.nan
         else:
@@ -301,7 +301,7 @@ def exercise_root(show_result=True):
                 f_a = f(a)
                 f_b = f(b)
 
-                print('a = %.6f, b = %.6f, c = %.6f, f(a) = %.6f, f(b) = %.6f, f(c) = %.6f' % (a, b, c, f_a, f_b, f_c))
+                print(f'a = {a:.6f}, b = {b:.6f}, c = {c:.6f}, f(a) = {f_a:.6f}, f(b) ={f_b:.6f}, f(c) = {f_c:.6f}')
 
                 # check if we have already found a root
                 if f_a == 0:
@@ -321,18 +321,18 @@ def exercise_root(show_result=True):
 
     print('=== Function f(x) = x**2-2 ===')
     r = search_root(f, 0, 2)
-    print('Root r = %.6f, f(r) = %.6f' % (r, f(r)))
+    print(f'Root r = {r:.6f}, f(r) = {f(r):.6f}')
     # Root r = 1.414207, f(r) = -0.000017
 
     print('=== Function f(x) = x**2-2 ===')
     r = search_root(f, 2, 4)
-    print('Root r = %.6f, f(r) = %.6f' % (r, f(r)))
+    print(f'Root r = {r:.6f}, f(r) = {f(r):.6f}')
 
     print('=== Function f(x) = x**2-2 ===')
     r = search_root(f, 4, 2)
-    print('Root r = %.6f, f(r) = %.6f' % (r, f(r)))
+    print(f'Root r = {r:.6f}, f(r) = {f(r):.6f}')
 
     print('=== Function f(x) = sin(x) ===')
     r = search_root(np.sin, 3, 4)
-    print('Root r = %.6f, sin(r) = %.6f' % (r, np.sin(r)))
+    print(f'Root r = {r:.6f}, sin(r) = {np.sin(r):.6f}')
     # Root r = 3.141594, sin(r) = -0.000001

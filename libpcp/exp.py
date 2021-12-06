@@ -130,21 +130,20 @@ def exercise_approx_exp(show_result=True):
         return exp_z
 
     z = 1
-    print('Input argument z = %.0f' % z)
+    print(f'Input argument z = {z:.0f}')
     for n in np.array([1, 2, 4, 8, 16, 32]):
         z0 = np.exp(z)
         z1 = exp_power_series(z, n)
         z2 = exp_limit_compound(z, n)
-        print('N = %3d, Numpy = %.10f, Approx1 = %.10f, Approx2 = %.10f' % (n, z0, z1, z2))
+        print(f'N = {n:3d}, Numpy = {z0:.10f}, Approx1 = {z1:.10f}, Approx2 = {z2:.10f}')
 
     z = 2 + 0.7*1j
-    print('Input argument z = (%1.1f, %1.1f)' % (z.real, z.imag))
+    print(f'Input argument z = ({z.real:1.1f}, {z.imag:1.1f})')
     for n in np.array([1, 2, 4, 8, 16, 32, 64, 128, 256, 512]):
         z0 = np.exp(z)
         z1 = exp_power_series(z, n)
         z2 = exp_limit_compound(z, n)
-        print('N = %3d, Numpy = (%2.6f, %2.6f), Approx1 = (%2.6f, %2.6f), Approx2 = (%2.6f, %2.6f)' %
-              (n, z0.real, z0.imag, z1.real, z1.imag, z2.real, z2.imag))
+        print(f'N = {n:3d}, Numpy = ({z0.real:2.6f}, {z0.imag:2.6f}), Approx1 = ({z1.real:2.6f}, {z1.imag:2.6f}), Approx2 = ({z2.real:2.6f}, {z2.imag:2.6f})')
 
 
 def exercise_gaussian(show_result=True):
