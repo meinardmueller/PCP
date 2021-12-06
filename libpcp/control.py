@@ -301,7 +301,7 @@ def exercise_root(show_result=True):
                 f_a = f(a)
                 f_b = f(b)
 
-                print(f'a = {a:.6f}, b = {b:.6f}, c = {c:.6f}, f(a) = {f_a:.6f}, f(b) ={f_b:.6f}, f(c) = {f_c:.6f}')
+                print(f'a = {a:.6f}, b = {b:.6f}, c = {c:.6f}, f(a) = {f_a:.6f}, f(b) = {f_b:.6f}, f(c) = {f_c:.6f}')
 
                 # check if we have already found a root
                 if f_a == 0:
