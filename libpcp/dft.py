@@ -13,7 +13,7 @@ import libpcp.signal
 def plot_inner_product(ax, t, x, y, color_x='k', color_y='r', label_x='x', label_y='y'):
     """Plot inner product
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         ax: Axis handle
@@ -39,7 +39,7 @@ def plot_inner_product(ax, t, x, y, color_x='k', color_y='r', label_x='x', label
 def plot_signal_e_k(ax, x, k, show_e=True, show_opt=False):
     """Plot signal and k-th DFT sinusoid
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         ax: Axis handle
@@ -77,7 +77,7 @@ def plot_signal_e_k(ax, x, k, show_e=True, show_opt=False):
 def generate_matrix_dft(N, K):
     """Generate a DFT (discete Fourier transfrom) matrix
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         N: Number of samples
@@ -96,7 +96,7 @@ def generate_matrix_dft(N, K):
 def dft(x):
     """Compute the discete Fourier transfrom (DFT)
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         x: Signal to be transformed
@@ -113,7 +113,7 @@ def dft(x):
 def fft(x):
     """Compute the fast Fourier transform (FFT)
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         x: Signal to be transformed
@@ -144,7 +144,7 @@ def fft(x):
 def plot_signal_dft(t, x, X, ax_sec=False, ax_Hz=False, freq_half=False, figsize=(10, 2)):
     """Plotting function for signals and its magnitude DFT
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         t: Time axis (given in seconds)
@@ -192,7 +192,7 @@ def plot_signal_dft(t, x, X, ax_sec=False, ax_Hz=False, freq_half=False, figsize
 def exercise_freq_index(show_result=True):
     """Exercise 1: Interpretation of Frequency Indices
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -226,7 +226,7 @@ def exercise_freq_index(show_result=True):
 def exercise_missing_time(show_result=True):
     """Exercise 2: Missing Time Localization
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -265,7 +265,7 @@ def exercise_missing_time(show_result=True):
 def exercise_chirp(show_result=True):
     """Exercise 3: Chirp Signal
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -276,7 +276,7 @@ def exercise_chirp(show_result=True):
     def generate_chirp_linear(t0=0, t1=1, N=128):
         """Generation chirp with linear frequency increase
 
-        Notebook: PCP_dft.ipynb
+        Notebook: PCP_09_dft.ipynb
 
         Args:
             t0: Start time in seconds (Default value = 0)
@@ -294,7 +294,7 @@ def exercise_chirp(show_result=True):
     def generate_chirp_plot_signal_dft(t0, t1, N):
         """Plot linear chirp signal
 
-            Notebook: PCP_dft.ipynb
+            Notebook: PCP_09_dft.ipynb
 
             Args:
                 t0: Start time in seconds
@@ -314,7 +314,7 @@ def exercise_chirp(show_result=True):
 def exercise_inverse(show_result=True):
     """Exercise 4: Inverse DFT
 
-    Notebook: PCP_dft.ipynb
+    Notebook: PCP_09_dft.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -325,7 +325,7 @@ def exercise_inverse(show_result=True):
     def generate_matrix_dft_inv(N, K):
         """Generates an IDFT (inverse discrete Fourier transfrom) matrix
 
-        Notebook: PCP_dft.ipynb
+        Notebook: PCP_09_dft.ipynb
 
         Args:
             N: Number of samples
@@ -357,7 +357,7 @@ def exercise_inverse(show_result=True):
     def fft_inv(x):
         """Compute the fast inverse Fourier transform (FFT)
 
-        Notebook: PCP_dft.ipynb
+        Notebook: PCP_09_dft.ipynb
 
         Args:
             x: Signal to be transformed

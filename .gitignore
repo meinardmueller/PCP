@@ -9,6 +9,7 @@
 !README.md
 !LICENSE
 !*.ipynb
+!*.html
 
 # ...even if they are in subdirectories
 !*/
@@ -25,7 +26,8 @@
 !data_layout/PCP_MIT_License_OSIApproved.png
 !data_layout/PCP_MIT_License_OSIApproved_text.png
 !*/.gitkeep
+!paper/*
+!.github/workflows/*
 
 # But ignore these folders/files
 .ipynb_checkpoints
-

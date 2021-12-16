@@ -14,7 +14,7 @@ from libpcp.complex import plot_vector
 def exp_approx_Euler(x_min=0, x_max=2, x_delta=0.01, f_0=1):
     """Approximation of exponential function using Euler's method
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         x_min: Start of input interval (Default value = 0)
@@ -38,7 +38,7 @@ def exp_approx_Euler(x_min=0, x_max=2, x_delta=0.01, f_0=1):
 def plot_vector(c, color='k', start=0, linestyle='-'):
     """Plotting complex number as vector
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         c: Complex number
@@ -54,7 +54,7 @@ def plot_vector(c, color='k', start=0, linestyle='-'):
 def plot_root_unity(N, ax):
     """Plotting N-th root of unity into figure with axis
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         N: Root number
@@ -85,7 +85,7 @@ def plot_root_unity(N, ax):
 def exercise_approx_exp(show_result=True):
     """Exercise 1: Approximation of Exponential Function via Power Series
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -96,7 +96,7 @@ def exercise_approx_exp(show_result=True):
     def exp_power_series(z, N):
         """Compute power series for exponential function
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             z: Number
@@ -117,7 +117,7 @@ def exercise_approx_exp(show_result=True):
     def exp_limit_compound(z, N):
         """Compute power series for exponential function
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             z: Number
@@ -130,27 +130,26 @@ def exercise_approx_exp(show_result=True):
         return exp_z
 
     z = 1
-    print('Input argument z = %.0f' % z)
+    print(f'Input argument z = {z:.0f}')
     for n in np.array([1, 2, 4, 8, 16, 32]):
         z0 = np.exp(z)
         z1 = exp_power_series(z, n)
         z2 = exp_limit_compound(z, n)
-        print('N = %3d, Numpy = %.10f, Approx1 = %.10f, Approx2 = %.10f' % (n, z0, z1, z2))
+        print(f'N = {n:3d}, Numpy = {z0:.10f}, Approx1 = {z1:.10f}, Approx2 = {z2:.10f}')
 
     z = 2 + 0.7*1j
-    print('Input argument z = (%1.1f, %1.1f)' % (z.real, z.imag))
+    print(f'Input argument z = ({z.real:1.1f}, {z.imag:1.1f})')
     for n in np.array([1, 2, 4, 8, 16, 32, 64, 128, 256, 512]):
         z0 = np.exp(z)
         z1 = exp_power_series(z, n)
         z2 = exp_limit_compound(z, n)
-        print('N = %3d, Numpy = (%2.6f, %2.6f), Approx1 = (%2.6f, %2.6f), Approx2 = (%2.6f, %2.6f)' %
-              (n, z0.real, z0.imag, z1.real, z1.imag, z2.real, z2.imag))
+        print(f'N = {n:3d}, Numpy = ({z0.real:2.6f}, {z0.imag:2.6f}), Approx1 = ({z1.real:2.6f}, {z1.imag:2.6f}), Approx2 = ({z2.real:2.6f}, {z2.imag:2.6f})')
 
 
 def exercise_gaussian(show_result=True):
     """Exercise 2: Gaussian Function
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -161,7 +160,7 @@ def exercise_gaussian(show_result=True):
     def compute_gaussian_1D(X, mu=0, sigma=1):
         """Compute Gaussian function
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             X: array
@@ -206,7 +205,7 @@ def exercise_gaussian(show_result=True):
 def exercise_spiral(show_result=True):
     """Exercise 3: Spiral Generation
 
-    Notebook: PCP_exp.ipynb
+    Notebook: PCP_07_exp.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -217,7 +216,7 @@ def exercise_spiral(show_result=True):
     def generate_spiral(rad_start=0.5, rad_end=2, num_rot=5, angle_start=0, N=201):
         """Generate spiral
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             rad_start: Radius to start with (Default value = 0.5)
@@ -239,7 +238,7 @@ def exercise_spiral(show_result=True):
     def plot_spiral(ax, spiral, rad_end):
         """Plot spiral
 
-        Notebook: PCP_exp.ipynb
+        Notebook: PCP_07_exp.ipynb
 
         Args:
             ax: Axis handle

@@ -13,7 +13,7 @@ import matplotlib.image as mpimg
 def exercise_vis1D(show_result=True):
     """Exercise 1: Plotting 1D Function
 
-    Notebook: PCP_vis.ipynb
+    Notebook: PCP_05_vis.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -77,7 +77,7 @@ def exercise_vis1D(show_result=True):
 def exercise_circle(show_result=True):
     """Exercise 2: Plotting Circle
 
-    Notebook: PCP_vis.ipynb
+    Notebook: PCP_05_vis.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -88,7 +88,7 @@ def exercise_circle(show_result=True):
     def plot_circle(Fs, ax):
         """Plot circle
 
-        Notebook: PCP_vis.ipynb
+        Notebook: PCP_05_vis.ipynb
 
         Args:
             Fs: Sampling rate
@@ -109,7 +109,7 @@ def exercise_circle(show_result=True):
 def exercise_logaxis(show_result=True):
     """Exercise 3: Plotting with Logarithmic Axes
 
-    Notebook: PCP_vis.ipynb
+    Notebook: PCP_05_vis.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -154,7 +154,7 @@ def exercise_logaxis(show_result=True):
 def exercise_plot3d(show_result=True):
     """Exercise 4: Plotting 3D Surface (sinc)
 
-    Notebook: PCP_vis.ipynb
+    Notebook: PCP_05_vis.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -179,7 +179,7 @@ def exercise_plot3d(show_result=True):
 def exercise_erlangen(show_result=True):
     """Exercise 5: Photo Manipulation (Erlangen)
 
-    Notebook: PCP_vis.ipynb
+    Notebook: PCP_05_vis.ipynb
 
     Args:
         show_result: Show result (Default value = True)

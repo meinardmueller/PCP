@@ -13,7 +13,7 @@ import IPython.display as ipd
 def generate_sinusoid(dur=1, amp=1, freq=1, phase=0, Fs=100):
     """Generation of sinusoid
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         dur: Duration (in seconds) of sinusoid (Default value = 1)
@@ -35,7 +35,7 @@ def generate_sinusoid(dur=1, amp=1, freq=1, phase=0, Fs=100):
 def generate_example_signal(dur=1, Fs=100):
     """Generate example signal
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         dur: Duration (in seconds) of signal (Default value = 1)
@@ -56,7 +56,7 @@ def generate_example_signal(dur=1, Fs=100):
 def sampling_equidistant(x_1, t_1, Fs_2, dur=None):
     """Equidistant sampling of interpolated signal
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         x_1: Signal to be interpolated and sampled
@@ -79,7 +79,7 @@ def sampling_equidistant(x_1, t_1, Fs_2, dur=None):
 def reconstruction_sinc(x, t, t_sinc):
     """Reconstruction from sampled signal using sinc-functions
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         x: Sampled signal
@@ -99,7 +99,7 @@ def reconstruction_sinc(x, t, t_sinc):
 def plot_signal_reconstructed(t_1, x_1, t_2, x_2, t_sinc, x_sinc, figsize=(8, 2.2)):
     """Plotting three signals
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         t_1: Time axis of original signal
@@ -126,7 +126,7 @@ def plot_signal_reconstructed(t_1, x_1, t_2, x_2, t_sinc, x_sinc, figsize=(8, 2.
 def plot_interference(t, x1, x2, figsize=(8, 2), xlim=None, ylim=None, title=''):
     """Plotting two signals and its superposition
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         t: Time axis
@@ -158,7 +158,7 @@ def plot_interference(t, x1, x2, figsize=(8, 2), xlim=None, ylim=None, title='')
 def exercise_beating(show_result=True):
     """Exercise 1: Beating
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -193,7 +193,7 @@ def exercise_beating(show_result=True):
 def exercise_aliasing_sinus(show_result=True):
     """Exercise 2: Aliasing with Sinsuoids
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -222,7 +222,7 @@ def exercise_aliasing_sinus(show_result=True):
 def exercise_aliasing_visual(show_result=True):
     """Exercise 3: Visual Aliasing
 
-    Notebook: PCP_signal.ipynb
+    Notebook: PCP_08_signal.ipynb
 
     Args:
         show_result: Show result (Default value = True)

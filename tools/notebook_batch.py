@@ -1,11 +1,13 @@
-"""
-Author: Frank Zalkow, International Audio Laboratories Erlangen
-This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
-"""
+# Script to export PCP notebooks to html
+# Author: Frank Zalkow
+# Usage:
+# cd PCP/
+# python notebook_batch.py --mode clean .
+# python notebook_batch.py --mode execute .
+# python notebook_batch.py --mode html .
 
 import argparse
 import os
-
 
 IGNORE_PRAEFIX = 'Dev_'
 
@@ -23,8 +25,7 @@ if __name__ == '__main__':
     if args.mode == 'execute':
         opt = '--ExecutePreprocessor.timeout=3600 --to notebook --execute --inplace'
     if args.mode == 'html':
-        # opt = '--to html --template classic'
-        opt = '--to html'
+        opt = '--to html ' #'--template classic'
 
     for dirpath, dirnames, filenames in os.walk(args.directory):
 

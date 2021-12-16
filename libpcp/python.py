@@ -11,7 +11,7 @@ import copy
 def exercise_list(show_result=True):
     """Exercise 1: Basic List Manipulations
 
-    Notebook: PCP_python.ipynb
+    Notebook: PCP_02_python.ipynb
 
     Args:
         show_result: Show result (Default value = True)
@@ -41,7 +41,7 @@ def exercise_list(show_result=True):
 def exercise_dict(show_result=True):
     """Exercise 2: Basic Dictionary Manipulations
 
-    Notebook: PCP_python.ipynb
+    Notebook: PCP_02_python.ipynb
 
     Args:
         show_result: Show result (Default value = True)

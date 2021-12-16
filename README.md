@@ -4,6 +4,13 @@ This repository contains the PCP Notebooks, which introduce some basic material 
 
 If a static view of the PCP notebooks is enough for you, the [exported HTML versions](https://www.audiolabs-erlangen.de/PCP) can be used right away without any installation. All material including the explanations, the figures, and the audio examples can be accessed by just following the **HTML links**. If you want to **execute** the Python code cells, you have to clone/download the notebooks (along with the data), create an environment, and start a Jupyter server. You then need to follow the **IPYNB links** within the Jupyter session. The necessary steps are explained in detail in the [PCP notebook on how to get started](https://www.audiolabs-erlangen.de/resources/MIR/PCP/PCP_getstarted.html).
 
+## Reference
+
+If you use the PCP Notebooks in your teaching or research, please consider the following reference.
+
+Meinard Müller and Sebastian Rosenzweig.
+[PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing.](https://) Journal of Open Source Education (JOSE), ?(??), 202?.
+
 ## Installing Local Environment for Executing PCP Notebooks
 This is the preferred and tested variant for using the PCP notebooks.
 
@@ -37,6 +44,9 @@ rm -rd PCP_temp
 One can also use [Binder](https://mybinder.org/) to execute the PCP notebooks. This clones the repository and automatically creates a conda environment. This may take several (maybe even up to ten) minutes when starting binder.
 
 https://mybinder.org/v2/gh/meinardmueller/PCP/master
+
+## Contributing
+We are happy for suggestions and contributions. However, to facilitate the synchronization, we would be grateful for either directly contacting us via email (meinard.mueller@audiolabs-erlangen.de) or for creating [an issue](https://github.com/meinardmueller/PCP/issues) in our GitHub repository. Please do not submit a pull request without prior consultation with us.
 
 ## Acknowledgements
 
