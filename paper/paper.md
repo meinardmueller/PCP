@@ -1,5 +1,5 @@
 ---
-title: 'PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing'
+title: "PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing"
 tags:
   - Python
   - Jupyter
