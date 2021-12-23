@@ -1,5 +1,5 @@
 ---
-title: "PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing"
+title: 'PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing'
 tags:
   - Python
   - Jupyter
@@ -17,8 +17,6 @@ affiliations:
 date: 01 November 2021
 bibliography:
   - paper.bib
-- citation_author: Müller \& Rosenzweig
-- link-citations: yes
 
 # Optional fields if submitting to a AAS journal too, see this blog post:
 # https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing
