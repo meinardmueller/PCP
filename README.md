@@ -9,7 +9,7 @@ If a static view of the PCP notebooks is enough for you, the [exported HTML vers
 If you use the PCP Notebooks in your teaching or research, please consider the following reference.
 
 Meinard Müller and Sebastian Rosenzweig.
-[PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing.](https://) Journal of Open Source Education (JOSE), ?(??), 202?.
+[PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing.](https://jose.theoj.org/papers/10.21105/jose.00148) Journal of Open Source Education (JOSE), 5(47), 2022.
 
 ## Installing Local Environment for Executing PCP Notebooks
 This is the preferred and tested variant for using the PCP notebooks.
