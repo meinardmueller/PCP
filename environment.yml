@@ -14,7 +14,7 @@ dependencies:
   - jupyter=1.0.*
   - jupyter_client=6.1.*  # prevents server error
   - jupyter_contrib_nbextensions=0.5.*  # spell checker
-  - nbconvert=5.6.*  # HTML export
   - pip:  # Packages that are installed via pip
     - nbstripout==0.3.*  # strip notebook output
     - notebook>=6.4.4  # fixes Markdown table rendering
+    - nbconvert==5.6.*  # HTML export
