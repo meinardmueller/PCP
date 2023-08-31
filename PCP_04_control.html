@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8" />
 
-<title>PCP_04_control</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PCP_04_control</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 <style type="text/css">
-    /*!
+  pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+<style type="text/css">
+/*!
 *
 * Twitter Bootstrap
 *
@@ -12944,86 +13018,7 @@ ul.typeahead-list  > li > a.pull-right {
 .terminal-app #terminado-container {
   margin-top: 20px;
 }
-/*# sourceMappingURL=style.min.css.map */
-    </style>
-<style type="text/css">
-    pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-.highlight .hll { background-color: #ffffcc }
-.highlight { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
-    </style>
-
-
+/*# sourceMappingURL=style.min.css.map */</style>
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -13035,55 +13030,66 @@ div#notebook {
   overflow: visible;
   border-top: none;
 }@media print {
+  body {
+    margin: 0;
+  }
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
-
-<!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
-<!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: {
+                    automatic: true
+                    }
+                }
+            });
 
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+<!-- End of mathjax configuration --></head>
+<body>
+<main>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div>
-<a href="https://www.audiolabs-erlangen.de/fau/professor/mueller"><img src="data_layout/PCP_Teaser.png" width=100% style="float: right;" alt="PCP Teaser"></a>
+<a href="https://www.audiolabs-erlangen.de/fau/professor/mueller"><img alt="PCP Teaser" src="data_layout/PCP_Teaser.png" style="float: right;" width="100%"/></a>
 </div>
 </div>
 </div>
@@ -13091,16 +13097,16 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Unit-4:-Basic-Control-Structures-and-Functions">Unit 4: Basic Control Structures and Functions<a class="anchor-link" href="#Unit-4:-Basic-Control-Structures-and-Functions">&#182;</a></h1><ul>
-    <li><a href='#learn'>Overview and Learning Objectives</a></li>     
-    <li><a href='#control'>Basic Control Structures</a></li>    
-    <li><a href='#function'>Python Functions</a></li>  
-    <li><a href='#runtime'>Efficiency and Runtime</a></li>     
-    <li><a href='#exercise_give_number'>Exercise 1: Function <code>give_me_a_number</code></a></li>        
-    <li><a href='#exercise_row_mean'>Exercise 2: Function for Computing Row Mean</code></a></li>
-    <li><a href='#exercise_odd'>Exercise 3: Function for Computing Odd-Index Vector</a></li>
-    <li><a href='#exercise_isprime'>Exercise 4: Primality Test</a></li>    
-    <li><a href='#exercise_root'>Exercise 5: Function for Root Finding</a></li>         
+<h1 id="Unit-4:-Basic-Control-Structures-and-Functions">Unit 4: Basic Control Structures and Functions<a class="anchor-link" href="#Unit-4:-Basic-Control-Structures-and-Functions">¶</a></h1><ul>
+<li><a href="#learn">Overview and Learning Objectives</a></li>
+<li><a href="#control">Basic Control Structures</a></li>
+<li><a href="#function">Python Functions</a></li>
+<li><a href="#runtime">Efficiency and Runtime</a></li>
+<li><a href="#exercise_give_number">Exercise 1: Function <code>give_me_a_number</code></a></li>
+<li><a href="#exercise_row_mean">Exercise 2: Function for Computing Row Mean</a></li>
+<li><a href="#exercise_odd">Exercise 3: Function for Computing Odd-Index Vector</a></li>
+<li><a href="#exercise_isprime">Exercise 4: Primality Test</a></li>
+<li><a href="#exercise_root">Exercise 5: Function for Root Finding</a></li>
 </ul>
 </div>
 </div>
@@ -13108,12 +13114,10 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='learn'></a></p>
+<p><a id="learn"></a></p>
 <div class="alert alert-block alert-warning">
 <h2>Overview and Learning Objectives</h2>
-
-This unit briefly introduces basic Python control structures (including `if`, `for`, and `while`),  which are similar to most other programming languages. Then, we look at how to create a function in Python using the keyword `def`. In particular, we discuss the difference between default and non-default arguments. Also, we give some guidelines on how to document a function using a suitable docstring. Finally, we show how one can measure the runtime for executing a function or small code snippets using the Python module `timeit`. In the first three exercises of this unit, you will implement some simple functions (which can be done in many ways) to familiarize yourself with the Python syntax. In <a href='#exercise_isprime'>Exercise 4</a>, we consider the mathematical problem of whether a natural number is a prime number. After implementing a simple Python function that solves this task, you should look for more efficient algorithms for primality testing. Going beyond the task specification, you may implement different algorithms and compare their runtime behavior and execution time for increasing numbers. Finally, in <a href='#exercise_root'>Exercise 5</a>, you find an accurate description of an algorithm for finding a root of a continuous function (i.e., an argument where the function assumes the value zero). While being a good exercise for implementing a mathematical procedure in executable Python code, this exercise also reviews some mathematical terms (e.g., interval, root, prime) that we think you should be familiar with. Furthermore, we want to make you aware that the notion of a function may appear in different contexts, e.g., once referring to a Python function and once to a mathematical function $f$ (which itself may serve as an argument to a Python function).
-
+<p>This unit briefly introduces basic Python control structures (including <code>if</code>, <code>for</code>, and <code>while</code>),  which are similar to most other programming languages. Then, we look at how to create a function in Python using the keyword <code>def</code>. In particular, we discuss the difference between default and non-default arguments. Also, we give some guidelines on how to document a function using a suitable docstring. Finally, we show how one can measure the runtime for executing a function or small code snippets using the Python module <code>timeit</code>. In the first three exercises of this unit, you will implement some simple functions (which can be done in many ways) to familiarize yourself with the Python syntax. In <a href="#exercise_isprime">Exercise 4</a>, we consider the mathematical problem of whether a natural number is a prime number. After implementing a simple Python function that solves this task, you should look for more efficient algorithms for primality testing. Going beyond the task specification, you may implement different algorithms and compare their runtime behavior and execution time for increasing numbers. Finally, in <a href="#exercise_root">Exercise 5</a>, you find an accurate description of an algorithm for finding a root of a continuous function (i.e., an argument where the function assumes the value zero). While being a good exercise for implementing a mathematical procedure in executable Python code, this exercise also reviews some mathematical terms (e.g., interval, root, prime) that we think you should be familiar with. Furthermore, we want to make you aware that the notion of a function may appear in different contexts, e.g., once referring to a Python function and once to a mathematical function $f$ (which itself may serve as an argument to a Python function).</p>
 </div>
 </div>
 </div>
@@ -13121,95 +13125,78 @@ This unit briefly introduces basic Python control structures (including `if`, `f
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='control'></a></p>
-<h2 id="Basic-Control-Structures">Basic Control Structures<a class="anchor-link" href="#Basic-Control-Structures">&#182;</a></h2><p>In Python, there are basic control structures similar to most other programming languages. The most important control structures are:</p>
+<p><a id="control"></a></p>
+<h2 id="Basic-Control-Structures">Basic Control Structures<a class="anchor-link" href="#Basic-Control-Structures">¶</a></h2><p>In Python, there are basic control structures similar to most other programming languages. The most important control structures are:</p>
 <ul>
 <li> <code>if</code>:  conditionally execute statements
 <li> <code>for</code>:  repeat statements a specific number of times
 <li> <code>while</code>:  repeat statements an indefinite number of times
 <li> <code>break</code>:  terminate execution of a <code>while</code>  or <code>for</code>  loop
 <li> <code>continue</code>:  continue execution of a <code>while</code>  or <code>for</code>  loop at top
-</ul><p>For control structures such as <code>if</code>, <code>for</code> or <code>while</code>, one has to use indentations (as part of the syntax). A typical Python convention is to use four spaces (or a tab indent). In the following, we give examples for each of these control structures. Let us start with an <code>if</code>-statement, which is written as follows:</p>
-
+</li></li></li></li></li></ul>
+<p>For control structures such as <code>if</code>, <code>for</code> or <code>while</code>, one has to use indentations (as part of the syntax). A typical Python convention is to use four spaces (or a tab indent). In the following, we give examples for each of these control structures. Let us start with an <code>if</code>-statement, which is written as follows:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Negative&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Negative'</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Positive&#39;</span><span class="p">)</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Positive'</span><span class="p">)</span>    
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zero&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Zero'</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Negative
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The next example shows how to use a <code>for</code>-loop. Note that an iterable may be specified by a range, a list, a tuple, or even other structures.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
     
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'def'</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;example&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">'example'</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0-1-2-
 a-2-c-def-
@@ -13217,156 +13204,123 @@ e-x-a-m-p-l-e-
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A <code>while</code>-loop is written as follows:</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0-1-2-3-4-</pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The <code>break</code>-statement is used to terminate the loop containing it. This is demonstrated by the following example, which consists of two nested loops each containing a  <code>break</code>-statement.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s1">&#39;abcd&#39;</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s1">'abcd'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">'c'</span><span class="p">:</span>
         <span class="k">break</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;12345&#39;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">'12345'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">'4'</span><span class="p">:</span>
             <span class="k">break</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>a1-a2-a3-b1-b2-b3-</pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The <code>continue</code>-statement is used to terminate only the current step of the loop. The loop then continues with the next iteration.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s1">&#39;abcd&#39;</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s1">'abcd'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">'c'</span><span class="p">:</span>
         <span class="k">continue</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;12345&#39;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">'12345'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">'4'</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>a1-a2-a3-a5-b1-b2-b3-b5-d1-d2-d3-d5-</pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='function'></a></p>
-<h2 id="Python-Functions">Python Functions<a class="anchor-link" href="#Python-Functions">&#182;</a></h2><p>One defines functions with the <code>def</code>-keyword. As variable names, function names may contain letters (<code>a</code>, <code>b</code>, ..., <code>Y</code>, <code>Z</code>) and the underscore (<code>_</code>). All but the first character can also be positive integer number. Usually one uses lower case letters and underscores to separate words. The following function is named <code>add</code>. It has three arguments <code>a</code>, <code>b</code>, and <code>c</code> (with <code>b</code> and <code>c</code> having a default value). The <code>return</code> keyword is succeeded by the return value.</p>
-
+<p><a id="function"></a></p>
+<h2 id="Python-Functions">Python Functions<a class="anchor-link" href="#Python-Functions">¶</a></h2><p>One defines functions with the <code>def</code>-keyword. As variable names, function names may contain letters (<code>a</code>, <code>b</code>, ..., <code>Y</code>, <code>Z</code>) and the underscore (<code>_</code>). All but the first character can also be positive integer number. Usually one uses lower case letters and underscores to separate words. The following function is named <code>add</code>. It has three arguments <code>a</code>, <code>b</code>, and <code>c</code> (with <code>b</code> and <code>c</code> having a default value). The <code>return</code> keyword is succeeded by the return value.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Function to add three numbers</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Function to add three numbers</span>
 
 <span class="sd">    Notebook: PCP_04_control.ipynb</span>
 
@@ -13377,28 +13331,21 @@ e-x-a-m-p-l-e-
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Sum of a, b and c</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Addition: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39; + &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39; + &#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Addition: '</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">' + '</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">' + '</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Addition:  5  +  0  +  0
 5
@@ -13409,10 +13356,8 @@ Addition:  5  +  0  +  4
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13422,20 +13367,19 @@ Addition:  5  +  0  +  4
 <li>All non-default arguments must be specified in the function call.</li>
 <li>The order of default arguments may not be changed in the call.</li>
 <li>The default arguments are optional in a call. If a value is provided, the default value is overwritten.</li>
-<li>A function may have any number of default arguments. However, a default argument may not be followed by a non-default argument. </li>
+<li>A function may have any number of default arguments. However, a default argument may not be followed by a non-default argument.</li>
 </ul>
 <p>These rules are illustrated by the previous examples. The next example demonstrates that a function may also have multiple return values (which are returned as a tuple):</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_and_diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Function to add and subtract two numbers</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_and_diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Function to add and subtract two numbers</span>
 
 <span class="sd">    Notebook: PCP_04_control.ipynb</span>
 
@@ -13446,71 +13390,54 @@ Addition:  5  +  0  +  4
 <span class="sd">    Returns:</span>
 <span class="sd">        first: a + b</span>
 <span class="sd">        second: a - b</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">add_and_diff</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'result:'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">add_and_diff</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'result:'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">add_and_diff</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'result:'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>result: (8, -2) &lt;class &#39;tuple&#39;&gt;
-result: 8 -2 &lt;class &#39;int&#39;&gt; &lt;class &#39;int&#39;&gt;
-result: 8.0 -2.0 &lt;class &#39;float&#39;&gt; &lt;class &#39;float&#39;&gt;
+<pre>result: (8, -2) &lt;class 'tuple'&gt;
+result: 8 -2 &lt;class 'int'&gt; &lt;class 'int'&gt;
+result: 8.0 -2.0 &lt;class 'float'&gt; &lt;class 'float'&gt;
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It is important to document a function. In particular, one should always describe the purpose of a function as well as its input and output. This is exactly what a <strong>docstring</strong> is used for. As described in the <a href="https://www.python.org/dev/peps/pep-0257/">Python Docstring Conventions</a>, a docstring is a string literal that occurs as the first statement in the function. For consistency, it is advised to use  <code>"""triple double quotes"""</code> around docstrings. Using the <code>help()</code> function, the content of the docstring is shown. This is a useful feature when building your own libraries with many functions. In the following code cell, we show the docstring of the function <code>add</code> defined above.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Help on function add in module __main__:
 
@@ -13530,27 +13457,24 @@ add(a, b=0, c=0)
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='runtime'></a></p>
-<h2 id="Efficiency-and-Runtime">Efficiency and Runtime<a class="anchor-link" href="#Efficiency-and-Runtime">&#182;</a></h2><p>In the following example, we consider the task of computing the sum $\sum_{i=1}^n i$ for a given integer $n\in\mathbb{N}$. We first implement a naive function <code>sum_n</code> that uses a simple <code>for</code>-loop. We then execute the function <code>sum_n</code> in a <code>while</code>-loop for increasing $n=1,2,3,...$ and output the result until the sum exceeds $100$.&lt;/li&gt;</p>
-
+<p><a id="runtime"></a></p>
+<h2 id="Efficiency-and-Runtime">Efficiency and Runtime<a class="anchor-link" href="#Efficiency-and-Runtime">¶</a></h2><p>In the following example, we consider the task of computing the sum $\sum_{i=1}^n i$ for a given integer $n\in\mathbb{N}$. We first implement a naive function <code>sum_n</code> that uses a simple <code>for</code>-loop. We then execute the function <code>sum_n</code> in a <code>while</code>-loop for increasing $n=1,2,3,...$ and output the result until the sum exceeds $100$.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Function that sums up the integers from 1 to n</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Function that sums up the integers from 1 to n</span>
 
 <span class="sd">    Notebook: PCP_04_control.ipynb</span>
 
@@ -13559,7 +13483,7 @@ add(a, b=0, c=0)
 
 <span class="sd">    Returns:</span>
 <span class="sd">        s: Sum of integers from 1 to n</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">n</span>
@@ -13567,23 +13491,16 @@ add(a, b=0, c=0)
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;n= </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'n= </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>n= 1, s=1
 n= 2, s=3
@@ -13601,28 +13518,25 @@ n= 13, s=91
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Rather than using a <code>for</code>-loop, one may think more efficient functions to compute this sum. In the following code cell, we consider the function <code>sum_n_numpy</code> that is based on the efficient NumPy-function <code>np.sum</code>. Furthermore, we consider the function <code>sum_n_math</code> which uses a closed mathematical formula for calculating the sum. We then measure and compare the execution time for the three different implementations. To this end, we use the Python module <a href="https://docs.python.org/2/library/timeit.html"><code>timeit</code></a>, which provides a simple way to measure the execution time of small bits of Python code. As an alternative, one may also use the function <code>time.time()</code> of the module <a href="https://docs.python.org/3/library/time.html"><code>time</code></a>.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="k">def</span> <span class="nf">sum_n_numpy</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Function that sums up the integers from 1 to n  using numpy</span>
+<span class="w">    </span><span class="sd">"""Function that sums up the integers from 1 to n  using numpy</span>
 
 <span class="sd">    Notebook: PCP_04_control.ipynb</span>
 
@@ -13631,12 +13545,12 @@ n= 13, s=91
 
 <span class="sd">    Returns:</span>
 <span class="sd">        s: Sum of integers from 1 to n</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">s</span>    
 
 <span class="k">def</span> <span class="nf">sum_n_math</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Function that sums up the integers from 1 to n using the idea by Gauss</span>
+<span class="w">    </span><span class="sd">"""Function that sums up the integers from 1 to n using the idea by Gauss</span>
 
 <span class="sd">    Notebook: PCP_04_control.ipynb</span>
 
@@ -13645,56 +13559,47 @@ n= 13, s=91
 
 <span class="sd">    Returns:</span>
 <span class="sd">        s: Sum of integers from 1 to n</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">s</span>   
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Computation with sum_n:       n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Computation with sum_n_numpy: n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n_numpy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Computation with sum_n_math:  n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n_math</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Computation with sum_n:       n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Computation with sum_n_numpy: n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n_numpy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Computation with sum_n_math:  n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, s=</span><span class="si">{</span><span class="n">sum_n_math</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Measuring runtime of different implementations </span>
 <span class="kn">import</span> <span class="nn">timeit</span>
 <span class="n">executions</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">runtime_av</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">sum_n</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">number</span><span class="o">=</span><span class="n">executions</span><span class="p">)</span> <span class="o">/</span> <span class="n">executions</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Runtime for sum_n: </span><span class="si">{</span><span class="n">runtime_av</span> <span class="o">*</span> <span class="mi">1000</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Runtime for sum_n: </span><span class="si">{</span><span class="n">runtime_av</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ms'</span><span class="p">)</span>
 
 <span class="n">runtime_av</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">sum_n_numpy</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">number</span><span class="o">=</span><span class="n">executions</span><span class="p">)</span> <span class="o">/</span> <span class="n">executions</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Runtime for sum_n_numpy: </span><span class="si">{</span><span class="n">runtime_av</span> <span class="o">*</span> <span class="mi">1000</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Runtime for sum_n_numpy: </span><span class="si">{</span><span class="n">runtime_av</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ms'</span><span class="p">)</span>
 
 <span class="n">runtime_av</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">sum_n_math</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">number</span><span class="o">=</span><span class="n">executions</span><span class="p">)</span> <span class="o">/</span> <span class="n">executions</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Runtime for sum_n_math: </span><span class="si">{</span><span class="n">runtime_av</span> <span class="o">*</span> <span class="mi">1000</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Runtime for sum_n_math: </span><span class="si">{</span><span class="n">runtime_av</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ms'</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Computation with sum_n:       n=1000, s=500500
 Computation with sum_n_numpy: n=1000, s=500500
 Computation with sum_n_math:  n=1000, s=500500
-Runtime for sum_n: 0.576335 ms
-Runtime for sum_n_numpy: 0.027800 ms
-Runtime for sum_n_math: 0.000309 ms
+Runtime for sum_n: 0.385383 ms
+Runtime for sum_n_numpy: 0.008619 ms
+Runtime for sum_n_math: 0.000155 ms
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13708,30 +13613,28 @@ Runtime for sum_n_math: 0.000309 ms
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises-and-Results">Exercises and Results<a class="anchor-link" href="#Exercises-and-Results">&#182;</a></h2>
+<h2 id="Exercises-and-Results">Exercises and Results<a class="anchor-link" href="#Exercises-and-Results">¶</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">libpcp.control</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">libpcp.control</span>
 <span class="n">show_result</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='exercise_give_number'></a></p>
+<p><a id="exercise_give_number"></a></p>
 <div class="alert alert-block alert-info">
-<strong>Exercise 1: Function <code>give_me_a_number</code></strong><br>
+<strong>Exercise 1: Function <code>give_me_a_number</code></strong><br/>
 Write a function <code>give_me_a_number</code> that has a string variable <code>s</code> as input argument. When <code>s</code> is the string <code>'large'</code>, the function should return the value $2^{100}$. If <code>s</code> is <code>'small'</code>, it should return $2^{-100}$. If <code>s</code> is <code>'random'</code>, it should return a random number in the range $[0,1)$ (using <code>np.random.rand</code>). In all other cases, the function should return <code>np.nan</code>. As default, set the input argument to the string <code>'nan'</code>.
 </div>
 </div>
@@ -13739,101 +13642,81 @@ Write a function <code>give_me_a_number</code> that has a string variable <code>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
 <span class="c1"># Your Solution</span>
 <span class="c1">#&lt;/solution&gt;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_give_number</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_give_number</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>default:    nan
-s=&#39;large&#39;:  1267650600228229401496703205376
-s=&#39;small&#39;:  7.888609052210118e-31
-s=&#39;random&#39;: 0.0963201685180527
-s=&#39;test&#39;:   nan
+s='large':  1267650600228229401496703205376
+s='small':  7.888609052210118e-31
+s='random': 0.42955001078442256
+s='test':   nan
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='exercise_row_mean'></a></p>
+<p><a id="exercise_row_mean"></a></p>
 <div class="alert alert-block alert-info">
-<strong>Exercise 2: Function for Computing Row Mean</strong><br>
-Write a function <code>row_mean</code> that inputs a matrix and outputs a vector containing the row-wise means (averages) of the input matrix. Apply the function to the matrix matrix $\mathbf{A} = \begin{bmatrix}1 & 2 & 6 \\5 & 5 & 2\\\end{bmatrix}$.
+<strong>Exercise 2: Function for Computing Row Mean</strong><br/>
+Write a function <code>row_mean</code> that inputs a matrix and outputs a vector containing the row-wise means (averages) of the input matrix. Apply the function to the matrix matrix $\mathbf{A} = \begin{bmatrix}1 &amp; 2 &amp; 6 \\5 &amp; 5 &amp; 2\\\end{bmatrix}$.
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
 <span class="c1"># Your Solution</span>
 <span class="c1">#&lt;/solution&gt;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_row_mean</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_row_mean</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Input matrix:
 [[1 2 6]
@@ -13842,18 +13725,16 @@ Vector containing the row means:  [3. 4.]
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='exercise_odd'></a></p>
+<p><a id="exercise_odd"></a></p>
 <div class="alert alert-block alert-info">
-<strong>Exercise 3: Function for Computing Odd-Index Vector</strong><br>
-Given a vector <code>x</code> (in form of a one-dimensional NumPy array), write a function <code>vector_odd_index</code> that outputs a vector <code>y</code> consisting only of the elements of <code>x</code> at an odd index position. If the input NumPy array <code>x</code> is not a vector, the function <code>vector_odd_index</code> should output <code>y=None</code>. <br>
+<strong>Exercise 3: Function for Computing Odd-Index Vector</strong><br/>
+Given a vector <code>x</code> (in form of a one-dimensional NumPy array), write a function <code>vector_odd_index</code> that outputs a vector <code>y</code> consisting only of the elements of <code>x</code> at an odd index position. If the input NumPy array <code>x</code> is not a vector, the function <code>vector_odd_index</code> should output <code>y=None</code>. <br/>
 <strong>Note:</strong> Recall that Python indexing starts with index <code>0</code> (which is an even index).
 </div>
 </div>
@@ -13861,40 +13742,31 @@ Given a vector <code>x</code> (in form of a one-dimensional NumPy array), write 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
 <span class="c1"># Your Solution</span>
 <span class="c1">#&lt;/solution&gt;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_odd</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_odd</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>x = [0 1 2 3 4 5 6 7 8 9]
 y = [1 3 5 7 9]
@@ -13907,64 +13779,53 @@ y = None
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='exercise_isprime'></a></p>
+<p><a id="exercise_isprime"></a></p>
 <div class="alert alert-block alert-info">
-<strong>Exercise 4: Primality Test</strong><br>
-An integer $n\in\mathbb{N}$ is called a <strong>prime number</strong> if $n>1$ and if $n$ is divisible only by $1$ and itself. Write a function <code>isprime</code> that inputs an integer <code>n</code> and outputs the boolean value <code>True</code> if <code>n</code> is a prime number and <code>False</code> otherwise. 
+<strong>Exercise 4: Primality Test</strong><br/>
+An integer $n\in\mathbb{N}$ is called a <strong>prime number</strong> if $n&gt;1$ and if $n$ is divisible only by $1$ and itself. Write a function <code>isprime</code> that inputs an integer <code>n</code> and outputs the boolean value <code>True</code> if <code>n</code> is a prime number and <code>False</code> otherwise. 
 <ul>
-<li> Test your function for $n=1$, $n=17$, $n=1221$, and $n=1223$.</li> 
-<li> Use this function to output the first $20$ prime numbers. </li> 
+<li> Test your function for $n=1$, $n=17$, $n=1221$, and $n=1223$.</li>
+<li> Use this function to output the first $20$ prime numbers. </li>
 <li> Discuss efficiency issues. Is there a more efficient way to compute the first $20$ prime numbers?</li>
-<li> Have a look at the algorithm <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes"><strong>Sieve of Eratosthenes</strong></a>, which is an ancient algorithm for finding all prime numbers up to any given limit.</li>        
-</ul>      
+<li> Have a look at the algorithm <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes"><strong>Sieve of Eratosthenes</strong></a>, which is an ancient algorithm for finding all prime numbers up to any given limit.</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
 <span class="c1"># Your Solution</span>
 <span class="c1">#&lt;/solution&gt;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_isprime</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_isprime</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>n = 1, isprime = False
 n = 17, isprime = True
@@ -13974,33 +13835,29 @@ List of first 20 prime numbers:
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='exercise_root'></a></p>
+<p><a id="exercise_root"></a></p>
 <div class="alert alert-block alert-info">
-<strong>Exercise 5: Function for Root Finding</strong><br>
-Let $f:\mathbb{R}\to\mathbb{R}$ be a continuous function and let $a,b\in\mathbb{R}$ be two numbers such that $a<b$ and $f(a)$ and $f(b)$ have opposite signs. Then $f$ has a <strong>root</strong> in the interval $[a,b]$. In other words, there is a number $r\in[a,b]$ such that $f(r)=0$. To find such a root, one can proceed as follows: 
+<strong>Exercise 5: Function for Root Finding</strong><br/>
+Let $f:\mathbb{R}\to\mathbb{R}$ be a continuous function and let $a,b\in\mathbb{R}$ be two numbers such that $a<b$ $f$="" $f(a)$="" $f(b)$="" <strong="" a="" and="" has="" have="" opposite="" signs.="" then="">root in the interval $[a,b]$. In other words, there is a number $r\in[a,b]$ such that $f(r)=0$. To find such a root, one can proceed as follows: 
 <ul>
-<li> Let $c = (a+b)/2$ be the center. If $f(a)=0$, $f(b)=0$, or $f(c)=0$, then we have found a root and we can stop. </li> 
-<li> Otherwise, either $f(a)$ and $f(c)$, or $f(c)$ and $f(b)$ have opposite signs. In the first case, continue with the interval $[a,c]$, otherwise with the interval $[c,b]$.</li> 
+<li> Let $c = (a+b)/2$ be the center. If $f(a)=0$, $f(b)=0$, or $f(c)=0$, then we have found a root and we can stop. </li>
+<li> Otherwise, either $f(a)$ and $f(c)$, or $f(c)$ and $f(b)$ have opposite signs. In the first case, continue with the interval $[a,c]$, otherwise with the interval $[c,b]$.</li>
 <li> Iterate this interval-halving procedure until the interval size is below a given threshold parameter (e.g., $10^{-5}$) and a sufficient approximation for the root is obtained.</li>
-</ul>  
-
-Write a function <code>search_root</code> that implements this procedure (also known as <strong>bisection method</strong>). The input arguments should be <code>f</code>, <code>a</code>, <code>b</code>, and <code>thresh</code>. Here, <code>f</code> is a Python function realizing a continuous function $f:\mathbb{R}\to\mathbb{R}$. The parameter <code>thresh</code> is the threshold parameter, which should be set to the value $10^{-5}$ by default. The function <code>search_root</code> should check if <code>a < b</code> and if the opposite sign condition for <code>f(a)</code> and <code>f(b)</code> is fulfilled (if not it should return the value <code>np.nan</code>). 
-
-<ul>
-<li> Evaluate <code>search_root</code> for <code>f</code> given by $f(x) = x^2-2$, <code>a=0</code>, and <code>b=2</code>. <br>(Note: You may define a separate Python function <code>f</code> that implements  $f(x) = x^2-2$. This function can then be used as one of the input argument to the Python function <code>search_root</code>.)</li> 
-<li> Test <code>search_root</code> for the same function when using <code>a=2</code> and <code>b=4</code>.  </li>  
-<li> Test <code>search_root</code> for the same function when using <code>a=4</code> and <code>b=2</code>.  </li>    
-<li> Evaluate <code>search_root</code> for <code>f</code> being <code>np.sin</code> using <code>a=3</code> and <code>b=4</code>. </li> 
 </ul>
-</div>
+<p>Write a function <code>search_root</code> that implements this procedure (also known as <strong>bisection method</strong>). The input arguments should be <code>f</code>, <code>a</code>, <code>b</code>, and <code>thresh</code>. Here, <code>f</code> is a Python function realizing a continuous function $f:\mathbb{R}\to\mathbb{R}$. The parameter <code>thresh</code> is the threshold parameter, which should be set to the value $10^{-5}$ by default. The function <code>search_root</code> should check if <code>a &lt; b</code> and if the opposite sign condition for <code>f(a)</code> and <code>f(b)</code> is fulfilled (if not it should return the value <code>np.nan</code>).</p>
+<ul>
+<li> Evaluate <code>search_root</code> for <code>f</code> given by $f(x) = x^2-2$, <code>a=0</code>, and <code>b=2</code>. <br/>(Note: You may define a separate Python function <code>f</code> that implements  $f(x) = x^2-2$. This function can then be used as one of the input argument to the Python function <code>search_root</code>.)</li>
+<li> Test <code>search_root</code> for the same function when using <code>a=2</code> and <code>b=4</code>.  </li>
+<li> Test <code>search_root</code> for the same function when using <code>a=4</code> and <code>b=2</code>.  </li>
+<li> Evaluate <code>search_root</code> for <code>f</code> being <code>np.sin</code> using <code>a=3</code> and <code>b=4</code>. </li>
+</ul>
+</b$></div>
 </div>
 </div>
 </div>
@@ -14015,40 +13872,31 @@ Write a function <code>search_root</code> that implements this procedure (also k
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#&lt;solution&gt;</span>
 <span class="c1"># Your Solution</span>
 <span class="c1">#&lt;/solution&gt;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_root</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">libpcp</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">exercise_root</span><span class="p">(</span><span class="n">show_result</span><span class="o">=</span><span class="n">show_result</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt"></div>
-
-
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>=== Function f(x) = x**2-2 ===
 a = 0.000000, b = 2.000000, c = 1.000000, f(a) = -2.000000, f(b) = 2.000000, f(c) = -1.000000
@@ -14100,25 +13948,20 @@ Root r = 3.141594, sin(r) = -0.000001
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div>
-<a href="https://opensource.org/licenses/MIT"><img src="data_layout/PCP_License.png" width=100% style="float: right;" alt="PCP License"></a>
+<a href="https://opensource.org/licenses/MIT"><img alt="PCP License" src="data_layout/PCP_License.png" style="float: right;" width="100%"/></a>
 </div>
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
+</main>
 </body>
-
- 
-
-
 </html>
