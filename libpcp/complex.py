@@ -6,6 +6,7 @@ This file is part of the PCP Notebooks (https://www.audiolabs-erlangen.de/PCP)
 """
 
 import os
+import warnings
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
@@ -243,7 +244,7 @@ def exercise_mandelbrot_fancy(show_result=True, save_file=False):
     thresh = 1000
     mandel_iter = np.zeros((M, N))
 
-    np.warnings.filterwarnings('ignore')
+    warnings.filterwarnings('ignore')
     Z = np.zeros((M, N))
     for k in range(iter_max):
         Z = Z * Z + C
