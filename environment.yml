@@ -5,16 +5,14 @@ channels:  # conda channels from which packages are downloaded
   - conda-forge
 
 dependencies:
-  - python=3.7.*  # Plain Python
-  - pip=19.2.*  # Package installer for Python
-  - numpy=1.17.*  # NumPy
-  - matplotlib=3.1.*  # Matplotlib
+  - python=3.9.*  # Plain Python
+  - pip=23.2.*  # Package installer for Python
+  - numpy=1.25.*  # NumPy
+  - matplotlib=3.7.*  # Matplotlib
 # Jupyter Notebook dependencies:
-  - ipython=7.8.*
-  - jupyter=1.0.*
-  - jupyter_client=6.1.*  # prevents server error
-  - jupyter_contrib_nbextensions=0.5.*  # spell checker
+  - ipython=8.12.*
+  - jupyter=1.0.*  # prevents server error
+  - jupyter_contrib_nbextensions=0.7.*  # spell checker
   - pip:  # Packages that are installed via pip
-    - nbstripout==0.3.*  # strip notebook output
-    - notebook>=6.4.4  # fixes Markdown table rendering
-    - nbconvert==5.6.*  # HTML export
+    - nbstripout==0.6.*  # strip notebook output
+    - nbconvert==7.7.*  # HTML export

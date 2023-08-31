@@ -166,12 +166,12 @@ def exercise_plot3d(show_result=True):
     f = np.sinc(3*X) + np.sinc(3*Y)
 
     fig = plt.figure(figsize=(10, 6))
-    ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection='3d')
     ax.plot_surface(X, Y, f, cmap='coolwarm')
     plt.show()
 
     fig = plt.figure(figsize=(10, 6))
-    ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection='3d')
     ax.plot_wireframe(X, Y, f)
     plt.show()
 

@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8" />
 
-<title>PCP</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PCP</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 <style type="text/css">
-    /*!
+  pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+<style type="text/css">
+/*!
 *
 * Twitter Bootstrap
 *
@@ -12944,86 +13018,7 @@ ul.typeahead-list  > li > a.pull-right {
 .terminal-app #terminado-container {
   margin-top: 20px;
 }
-/*# sourceMappingURL=style.min.css.map */
-    </style>
-<style type="text/css">
-    pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-.highlight .hll { background-color: #ffffcc }
-.highlight { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
-    </style>
-
-
+/*# sourceMappingURL=style.min.css.map */</style>
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -13035,55 +13030,66 @@ div#notebook {
   overflow: visible;
   border-top: none;
 }@media print {
+  body {
+    margin: 0;
+  }
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
-
-<!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
-<!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: {
+                    automatic: true
+                    }
+                }
+            });
 
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+<!-- End of mathjax configuration --></head>
+<body>
+<main>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div>
-<a href="https://www.audiolabs-erlangen.de/fau/professor/mueller"><img src="data_layout/PCP_Teaser.png" width=100% style="float: right;" alt="PCP Teaser"></a>
+<a href="https://www.audiolabs-erlangen.de/fau/professor/mueller"><img alt="PCP Teaser" src="data_layout/PCP_Teaser.png" style="float: right;" width="100%"/></a>
 </div>
 </div>
 </div>
@@ -13091,7 +13097,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1><p>The PCP notebooks offer open-source educational material for a Preparation Course for Python (PCP) while using signal processing as a motivating and tangible application for practicing the programming concepts. Building upon the open-access Jupyter framework, the PCP notebooks consist of interactive documents that contain executable code, textbook-like explanations, mathematical formulas, plots, images, and sound examples. Assuming some general programming experience and basic knowledge in digital signal processing, the PCP notebooks are designed to serve several purposes.</p>
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h1><p>The PCP notebooks offer open-source educational material for a Preparation Course for Python (PCP) while using signal processing as a motivating and tangible application for practicing the programming concepts. Building upon the open-access Jupyter framework, the PCP notebooks consist of interactive documents that contain executable code, textbook-like explanations, mathematical formulas, plots, images, and sound examples. Assuming some general programming experience and basic knowledge in digital signal processing, the PCP notebooks are designed to serve several purposes.</p>
 <ul>
 <li><p>First, the PCP notebooks provide interactive and well-structured material that may be suited for self-study or may serve as course material. For example, we use the PCP notebooks as the basis for a one-week intensive preparatory course offered to new students admitted to the international Master's study programme <a href="https://www.cme.studium.fau.de/">Communications and Multimedia Engineering (CME)</a>.</p>
 </li>
@@ -13103,7 +13109,6 @@ div#notebook {
 </li>
 </ul>
 <p>In summary, we hope that the PCP notebooks help students to naturally transition from starting to learn about Python programming and signal processing to beginning independent research following good scientific practices.</p>
-
 </div>
 </div>
 </div>
@@ -13111,25 +13116,20 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="alert alert-block alert-warning">
-
-<a href="https://opensource.org/licenses/MIT"><img src="data_layout/PCP_MIT_License_OSIApproved_text.png" width="70" style="float:right;" alt="CC"></a>   
-
-<strong>Note:</strong> The code, text, and figures of the PCP notebooks are licensed under the
-<a href="https://opensource.org/licenses/MIT">MIT License</a>. The latest version of the PCP notebooks is hosted on <a href="https://github.com/meinardmueller/PCP">GitHub</a>. Alternatively, you can download a <a href="https://www.audiolabs-erlangen.de/resources/MIR/PCP/PCP_1.1.2.zip">zip-compressed archive</a> containing the PCP notebooks and all data. Further details can be found in the <a href="PCP_01_getstarted.html">PCP notebook on how to get started</a>. We try to continuously improve the PCP notebooks and provide updates on a regular basis (current version: 1.1.2). For suggestions and feedback, please contact <a href="https://www.audiolabs-erlangen.de/fau/professor/mueller">Meinard Müller</a>. If you use and want to refer to the PCP notebooks, please cite:
-<br>
-
+<p><a href="https://opensource.org/licenses/MIT"><img alt="CC" src="data_layout/PCP_MIT_License_OSIApproved_text.png" style="float:right;" width="70"/></a></p>
+<p><strong>Note:</strong> The code, text, and figures of the PCP notebooks are licensed under the
+<a href="https://opensource.org/licenses/MIT">MIT License</a>. The latest version of the PCP notebooks is hosted on <a href="https://github.com/meinardmueller/PCP">GitHub</a>. Alternatively, you can download a <a href="https://www.audiolabs-erlangen.de/resources/MIR/PCP/PCP_1.1.3.zip">zip-compressed archive</a> containing the PCP notebooks and all data. Further details can be found in the <a href="PCP_01_getstarted.html">PCP notebook on how to get started</a>. We try to continuously improve the PCP notebooks and provide updates on a regular basis (current version: 1.1.3). For suggestions and feedback, please contact <a href="https://www.audiolabs-erlangen.de/fau/professor/mueller">Meinard Müller</a>. If you use and want to refer to the PCP notebooks, please cite:
+<br/></p>
 <ul>
 <li>
 <span style="color:black">
 Meinard Müller and Sebastian Rosenzweig: <strong>PCP Notebooks: A Preparation Course for Python with a Focus on Signal Processing.</strong> The Journal of Open Source Education (JOSE), 5(47), 2022.
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_MuellerR22_PCP_JOSE.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/2022_MuellerR_PCP_JOSE.pdf"> PDF </a> 
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://github.com/meinardmueller/PCP"> GitHub </a>     
-</li>
-</ul>       
-
-
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_MuellerR22_PCP_JOSE.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="data/2022_MuellerR_PCP_JOSE.pdf" target="_blank" type="button"> PDF </a>
+<a class="btn btn-default btn-xs" href="https://github.com/meinardmueller/PCP" target="_blank" type="button"> GitHub </a>
+</span></li>
+</ul>
 </div>
 </div>
 </div>
@@ -13137,111 +13137,99 @@ Meinard Müller and Sebastian Rosenzweig: <strong>PCP Notebooks: A Preparation C
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Get-Started">Get Started<a class="anchor-link" href="#Get-Started">&#182;</a></h2><p>If a static view of the PCP notebooks is enough for you, the <a href="https://audiolabs-erlangen.de/PCP">exported HTML versions</a> can be used right away without any installation. All material, including the explanations, the figures, and the audio examples, can be accessed by just following the <strong>HTML links</strong>. If you want to <strong>execute</strong> the Python code cells, you have to download the notebooks (along with the data), create an environment, and start a Jupyter server. You then need to follow the <strong>IPYNB links</strong> within the Jupyter session. As an alternative for executing the notebooks, one can also use web-based services such as Google colab or binder via  the <a href="https://github.com/meinardmueller/PCP">notebooks' GitHub repository</a>. The necessary steps and technical details are explained in the <a href="PCP_01_getstarted.html">PCP notebook on how to get started</a>.</p>
-
+<h2 id="Get-Started">Get Started<a class="anchor-link" href="#Get-Started">¶</a></h2><p>If a static view of the PCP notebooks is enough for you, the <a href="https://audiolabs-erlangen.de/PCP">exported HTML versions</a> can be used right away without any installation. All material, including the explanations, the figures, and the audio examples, can be accessed by just following the <strong>HTML links</strong>. If you want to <strong>execute</strong> the Python code cells, you have to download the notebooks (along with the data), create an environment, and start a Jupyter server. You then need to follow the <strong>IPYNB links</strong> within the Jupyter session. As an alternative for executing the notebooks, one can also use web-based services such as Google colab or binder via  the <a href="https://github.com/meinardmueller/PCP">notebooks' GitHub repository</a>. The necessary steps and technical details are explained in the <a href="PCP_01_getstarted.html">PCP notebook on how to get started</a>.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Structure-and-Content">Structure and Content<a class="anchor-link" href="#Structure-and-Content">&#182;</a></h2><p>The collection of PCP notebooks is organized into ten units. Each unit, corresponding to an individual notebook, gives an overview, explains its learning objectives, and then presents the main content using executable code, textbook-like explanations, mathematical formulas, plots, images, and sound examples.  At the end of each unit, one finds short coding exercises. For self-evaluation, the PCP notebooks provide for each exercise a sample solution in the form of a Python function contained in one of the modules of the <a href="PCP_10_module.html">Python package libpcp</a>. Roughly speaking, the first half of the PCP notebooks covers general Python concepts, while the second half applies these programming concepts in the context of signal processing. The following table gives an overview of the PCP notebooks' ten units and their main content.</p>
+<h2 id="Structure-and-Content">Structure and Content<a class="anchor-link" href="#Structure-and-Content">¶</a></h2><p>The collection of PCP notebooks is organized into ten units. Each unit, corresponding to an individual notebook, gives an overview, explains its learning objectives, and then presents the main content using executable code, textbook-like explanations, mathematical formulas, plots, images, and sound examples.  At the end of each unit, one finds short coding exercises. For self-evaluation, the PCP notebooks provide for each exercise a sample solution in the form of a Python function contained in one of the modules of the <a href="PCP_10_module.html">Python package libpcp</a>. Roughly speaking, the first half of the PCP notebooks covers general Python concepts, while the second half applies these programming concepts in the context of signal processing. The following table gives an overview of the PCP notebooks' ten units and their main content.</p>
 <table class="table table-hover" style="border:none; font-size: 90%; width:100%; text-align:left">
 <colgroup>
-    <col style="width:10%; text-align:left">
-    <col style="width:25%; text-align:left">
-    <col style="width:55%; text-align:left">  
-    <col style="width:10%; text-align:left">
-    <col style="width:10%; text-align:left">
+<col style="width:10%; text-align:left"/>
+<col style="width:25%; text-align:left"/>
+<col style="width:55%; text-align:left"/>
+<col style="width:10%; text-align:left"/>
+<col style="width:10%; text-align:left"/>
 </colgroup>
-
-<tr text-align="left" style="border:1px solid #C8C8C8; background-color:#F0F0F0" >
-    <td style="border:none; text-align:left"><b>Unit</b></td>
-    <td style="border:none; text-align:left"><b>Title</b></td> 
-    <td style="border:none; text-align:left"><b>Notions, Techniques &amp; Algorithms</b></td>
-    <td style="border:none; text-align:left"><b>HTML</b></td>
-    <td style="border:none; text-align:left"><b>IPYNB</b></td>
+<tr style="border:1px solid #C8C8C8; background-color:#F0F0F0" text-align="left">
+<td style="border:none; text-align:left"><b>Unit</b></td>
+<td style="border:none; text-align:left"><b>Title</b></td>
+<td style="border:none; text-align:left"><b>Notions, Techniques &amp; Algorithms</b></td>
+<td style="border:none; text-align:left"><b>HTML</b></td>
+<td style="border:none; text-align:left"><b>IPYNB</b></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>1</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_01_getstarted.html">Get Started</a></td> 
-    <td style="border:none; text-align:left">Download; Conda; Python environment; Jupyter</td>
-    <td style="border:none; text-align:left"><a href="PCP_01_getstarted.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_01_getstarted.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>1</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_01_getstarted.html">Get Started</a></td>
+<td style="border:none; text-align:left">Download; Conda; Python environment; Jupyter</td>
+<td style="border:none; text-align:left"><a href="PCP_01_getstarted.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_01_getstarted.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>2</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_02_python.html">Python Basics</a></td> 
-    <td style="border:none; text-align:left">Help; variables; basic operators; list; tuple; boolean values; set; dictionary; type conversion; shallow and deep copy</td>      
-    <td style="border:none; text-align:left"><a href="PCP_02_python.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_02_python.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>2</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_02_python.html">Python Basics</a></td>
+<td style="border:none; text-align:left">Help; variables; basic operators; list; tuple; boolean values; set; dictionary; type conversion; shallow and deep copy</td>
+<td style="border:none; text-align:left"><a href="PCP_02_python.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_02_python.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>3</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_03_numpy.html">NumPy Basics</a></td> 
-    <td style="border:none; text-align:left">Array; reshape; array operations; type conversion; constants; matrix</td>      
-    <td style="border:none; text-align:left"><a href="PCP_03_numpy.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_03_numpy.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>3</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_03_numpy.html">NumPy Basics</a></td>
+<td style="border:none; text-align:left">Array; reshape; array operations; type conversion; constants; matrix</td>
+<td style="border:none; text-align:left"><a href="PCP_03_numpy.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_03_numpy.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>4</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_04_control.html">Control Structures and Functions</a></td> 
-    <td style="border:none; text-align:left">Loop; for; while; break; continue; Python function; efficiency; runtime</td>      
-    <td style="border:none; text-align:left"><a href="PCP_04_control.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_04_control.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>4</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_04_control.html">Control Structures and Functions</a></td>
+<td style="border:none; text-align:left">Loop; for; while; break; continue; Python function; efficiency; runtime</td>
+<td style="border:none; text-align:left"><a href="PCP_04_control.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_04_control.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>5</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_05_vis.html">Visualization Using Matplotlib</a></td> 
-    <td style="border:none; text-align:left">Plot (1D); figure; imshow (2D); surface (3D); logarithmic axis</td>      
-    <td style="border:none; text-align:left"><a href="PCP_05_vis.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_05_vis.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>5</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_05_vis.html">Visualization Using Matplotlib</a></td>
+<td style="border:none; text-align:left">Plot (1D); figure; imshow (2D); surface (3D); logarithmic axis</td>
+<td style="border:none; text-align:left"><a href="PCP_05_vis.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_05_vis.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>6</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_06_complex.html">Complex Numbers</a></td> 
-    <td style="border:none; text-align:left">Real part; imaginary part; absolute value; angle; polar representation; complex operations; conjugate; polar coordinate plot; roots; Mandelbrot </td>      
-    <td style="border:none; text-align:left"><a href="PCP_06_complex.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_06_complex.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>6</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_06_complex.html">Complex Numbers</a></td>
+<td style="border:none; text-align:left">Real part; imaginary part; absolute value; angle; polar representation; complex operations; conjugate; polar coordinate plot; roots; Mandelbrot </td>
+<td style="border:none; text-align:left"><a href="PCP_06_complex.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_06_complex.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>7</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_07_exp.html">Exponential Function</a></td> 
-    <td style="border:none; text-align:left">Power series; exponentiation identity; Euler's formula; differential equation; roots of unity; Gaussian function; spiral</td>      
-    <td style="border:none; text-align:left"><a href="PCP_07_exp.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_07_exp.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>7</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_07_exp.html">Exponential Function</a></td>
+<td style="border:none; text-align:left">Power series; exponentiation identity; Euler's formula; differential equation; roots of unity; Gaussian function; spiral</td>
+<td style="border:none; text-align:left"><a href="PCP_07_exp.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_07_exp.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>8</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_08_signal.html">Signals and Sampling</a></td> 
-    <td style="border:none; text-align:left">Continuous-time signal; periodic; frequency; Hertz; amplitude; phase; discrete-time signal; sampling; aliasing; interference; beating; </td>      
-    <td style="border:none; text-align:left"><a href="PCP_08_signal.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_08_signal.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>8</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_08_signal.html">Signals and Sampling</a></td>
+<td style="border:none; text-align:left">Continuous-time signal; periodic; frequency; Hertz; amplitude; phase; discrete-time signal; sampling; aliasing; interference; beating; </td>
+<td style="border:none; text-align:left"><a href="PCP_08_signal.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_08_signal.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>9</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_09_dft.html">Discrete Fourier Transform (DFT)</a></td> 
-    <td style="border:none; text-align:left">Inner product; DFT; phase; optimality; DFT matrix; fast Fourier transform (FFT); FFT algorithm; runtime; time localization; chirp signal; inverse DFT</td>      
-    <td style="border:none; text-align:left"><a href="PCP_09_dft.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_09_dft.ipynb">[ipynb]</a></td>
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>9</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_09_dft.html">Discrete Fourier Transform (DFT)</a></td>
+<td style="border:none; text-align:left">Inner product; DFT; phase; optimality; DFT matrix; fast Fourier transform (FFT); FFT algorithm; runtime; time localization; chirp signal; inverse DFT</td>
+<td style="border:none; text-align:left"><a href="PCP_09_dft.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_09_dft.ipynb">[ipynb]</a></td>
 </tr>
-
-<tr text-align="left" style="border:1px solid #C8C8C8">
-    <td style="border:none; text-align:left"><strong>10</strong></td>
-    <td style="border:none; text-align:left"><a href="PCP_10_module.html">Python Modules and Packages</a></td> 
-    <td style="border:none; text-align:left">Python modules; Python packages; libpcp; documentation; docstring; sample solutions to exercises</td>      
-    <td style="border:none; text-align:left"><a href="PCP_10_module.html">[html]</a></td>      
-    <td style="border:none; text-align:left"><a href="PCP_10_module.ipynb">[ipynb]</a></td>
-</tr>    
+<tr style="border:1px solid #C8C8C8" text-align="left">
+<td style="border:none; text-align:left"><strong>10</strong></td>
+<td style="border:none; text-align:left"><a href="PCP_10_module.html">Python Modules and Packages</a></td>
+<td style="border:none; text-align:left">Python modules; Python packages; libpcp; documentation; docstring; sample solutions to exercises</td>
+<td style="border:none; text-align:left"><a href="PCP_10_module.html">[html]</a></td>
+<td style="border:none; text-align:left"><a href="PCP_10_module.ipynb">[ipynb]</a></td>
+</tr>
 </table>
 </div>
 </div>
@@ -13249,56 +13237,49 @@ Meinard Müller and Sebastian Rosenzweig: <strong>PCP Notebooks: A Preparation C
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Further-Notes,-Links,-and-Literature">Further Notes, Links, and Literature<a class="anchor-link" href="#Further-Notes,-Links,-and-Literature">&#182;</a></h2><p>The immediate contribution of the PCP notebooks is to provide basic material on Python programming as required, e.g., for more advanced lab courses in a signal processing curriculum. The PCP notebooks are not intended to give a comprehensive overview of Python programming, as provided by online sources such as <a href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a> or the <a href="https://scipy-lectures.org/">Scipy Lecture Notes</a>. Instead, restricting to simple data structures and basic functions (while avoiding more complex topics such as object-oriented programming), the PCP notebooks do not want to overwhelm students when using Python for the first time.</p>
+<h2 id="Further-Notes,-Links,-and-Literature">Further Notes, Links, and Literature<a class="anchor-link" href="#Further-Notes,-Links,-and-Literature">¶</a></h2><p>The immediate contribution of the PCP notebooks is to provide basic material on Python programming as required, e.g., for more advanced lab courses in a signal processing curriculum. The PCP notebooks are not intended to give a comprehensive overview of Python programming, as provided by online sources such as <a href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a> or the <a href="https://scipy-lectures.org/">Scipy Lecture Notes</a>. Instead, restricting to simple data structures and basic functions (while avoiding more complex topics such as object-oriented programming), the PCP notebooks do not want to overwhelm students when using Python for the first time.</p>
 <p>When designing the PCP notebooks, one main motivation was to provide some basics as required for working with more advanced signal-processing toolboxes. In particular, the PCP notebooks are inspired and designed to bridge the gap to the <a href="https://www.audiolabs-erlangen.de/FMP">FMP notebooks</a> for teaching and learning fundamentals of music processing (FMP). Furthermore, we want to point out the excellent Python package <a href="https://librosa.org/doc/latest/index.html">librosa</a>, which is a widely used Python library containing standardized and flexible reference implementations of many common methods in audio and music processing.</p>
 <p>The following literature gives further pointers to educational material in the context of music and audio signal processing in the spirit of the PCP notebooks.</p>
 <ul>
-
 <li><span style="color:black">
 Brian McFee, Colin Raffel, Dawen Liang, Daniel P.W. Ellis, Matt McVicar, Eric Battenberg, and Oriol Nieto: <strong>Librosa: Audio and Music Signal Analysis in Python.</strong> Proceedings the Python Science Conference, 2015. doi: 10.25080/Majora-7b98e3ed-003
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_McFeeRLEMBN15_librosa_Python.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://conference.scipy.org/proceedings/scipy2015/pdfs/brian_mcfee.pdf"> PDF </a> 
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://github.com/librosa/librosa"> GitHub </a>      
-</span></li> 
-
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_McFeeRLEMBN15_librosa_Python.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="https://conference.scipy.org/proceedings/scipy2015/pdfs/brian_mcfee.pdf" target="_blank" type="button"> PDF </a>
+<a class="btn btn-default btn-xs" href="https://github.com/librosa/librosa" target="_blank" type="button"> GitHub </a>
+</span></li>
 <li><span style="color:black">
 Brian McFee, Jong Wook Kim, Mark Cartwright, Justin Salamon, Rachel M. Bittner, and Juan Pablo Bello: <strong>Open-Source Practices for Music Signal Processing Research: Recommendations for Transparent, Sustainable, and Reproducible Audio Research.</strong> IEEE Signal Processing Magazine, 36(1) 128-137, 2019. doi: 10.1109/MSP.2018.2875349
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_McFeeKCSBB19_OpenSourcePractices_IEEE-SPM.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://ieeexplore.ieee.org/document/8588406"> PDF </a>    
-</span></li> 
-
-
-<li><span style="color:black">
-Meinard Müller: <strong>Fundamentals of Music Processing &ndash; Using Python and Jupyter Notebooks.</strong> Springer Verlag, 2021.
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_Mueller21_FMP_SPRINGER.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="http://www.music-processing.de/"> Details </a>    
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_McFeeKCSBB19_OpenSourcePractices_IEEE-SPM.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="https://ieeexplore.ieee.org/document/8588406" target="_blank" type="button"> PDF </a>
 </span></li>
-
+<li><span style="color:black">
+Meinard Müller: <strong>Fundamentals of Music Processing – Using Python and Jupyter Notebooks.</strong> Springer Verlag, 2021.
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_Mueller21_FMP_SPRINGER.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="http://www.music-processing.de/" target="_blank" type="button"> Details </a>
+</span></li>
 <li><span style="color:black">
 Meinard Müller, Brian McFee, and Katherine Kinnaird: <strong>Interactive Learning of Signal Processing Through Music: Making Fourier Analysis Concrete for Students.</strong> IEEE Signal Processing Magazine, 38(3) 73-84, 2021. doi: 10.1109/MSP.2021.3052181
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_MuellerMK21_LearningMusicSP_IEEE-SPM.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://ieeexplore.ieee.org/document/9418542"> PDF </a>    
-</span></li>     
-
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_MuellerMK21_LearningMusicSP_IEEE-SPM.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="https://ieeexplore.ieee.org/document/9418542" target="_blank" type="button"> PDF </a>
+</span></li>
+<pre><code>    </code></pre>
 <li><span style="color:black">
 Meinard Müller and Frank Zalkow: <strong>FMP Notebooks: Educational Material for Teaching and Learning Fundamentals of Music Processing.</strong> Proceedings of the International Conference on Music Information Retrieval (ISMIR), Delft, The Netherlands, 2019.
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_MuellerZ19_FMP_ISMIR.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://zenodo.org/record/3527872#.YU2LOLgzaUk"> PDF </a>    
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_MuellerZ19_FMP_ISMIR.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="https://zenodo.org/record/3527872#.YU2LOLgzaUk" target="_blank" type="button"> PDF </a>
 </span></li>
-
 <li><span style="color:black">
 Meinard Müller and Frank Zalkow: <strong>libfmp: A Python Package for Fundamentals of Music Processing.</strong> Journal of Open Source Software (JOSS), 6(63) 3326:1-5, 2021. doi: 10.21105/joss.03326
-<br>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="data/PCP_bibtex_MuellerR21_PCP_JOSE.txt"> Bibtex </a>
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://joss.theoj.org/papers/10.21105/joss.03326"> PDF </a> 
-<a type="button" class="btn btn-default btn-xs" target="_blank" href="https://github.com/meinardmueller/libfmp"> GitHub </a>    
-</span></li>    
-
+<br/>
+<a class="btn btn-default btn-xs" href="data/PCP_bibtex_MuellerR21_PCP_JOSE.txt" target="_blank" type="button"> Bibtex </a>
+<a class="btn btn-default btn-xs" href="https://joss.theoj.org/papers/10.21105/joss.03326" target="_blank" type="button"> PDF </a>
+<a class="btn btn-default btn-xs" href="https://github.com/meinardmueller/libfmp" target="_blank" type="button"> GitHub </a>
+</span></li>
 </ul>
 </div>
 </div>
@@ -13306,12 +13287,12 @@ Meinard Müller and Frank Zalkow: <strong>libfmp: A Python Package for Fundament
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Contact">Contact<a class="anchor-link" href="#Contact">&#182;</a></h2><p>
-<a href="https://www.audiolabs-erlangen.de/fau/professor/mueller">Prof. Dr. Meinard Müller</a> <br>
-Friedrich-Alexander Universität Erlangen-Nürnberg <br>
-International Audio Laboratories Erlangen <br>
-Lehrstuhl Semantic Audio Processing <br>
-Am Wolfsmantel 33, 91058 Erlangen <br>
+<h2 id="Contact">Contact<a class="anchor-link" href="#Contact">¶</a></h2><p>
+<a href="https://www.audiolabs-erlangen.de/fau/professor/mueller">Prof. Dr. Meinard Müller</a> <br/>
+Friedrich-Alexander Universität Erlangen-Nürnberg <br/>
+International Audio Laboratories Erlangen <br/>
+Lehrstuhl Semantic Audio Processing <br/>
+Am Wolfsmantel 33, 91058 Erlangen <br/>
 Email: meinard.mueller@audiolabs-erlangen.de
 </p>
 </div>
@@ -13320,15 +13301,15 @@ Email: meinard.mueller@audiolabs-erlangen.de
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Acknowledgment">Acknowledgment<a class="anchor-link" href="#Acknowledgment">&#182;</a></h2><p>The PCP notebooks build on material and insights that have been obtained in close collaboration with different people. We would like to express our gratitude to former and current students, collaborators, and colleagues who have influenced and supported us in creating this course, including (in alphabetical order):</p>
-<ul>  
+<h2 id="Acknowledgment">Acknowledgment<a class="anchor-link" href="#Acknowledgment">¶</a></h2><p>The PCP notebooks build on material and insights that have been obtained in close collaboration with different people. We would like to express our gratitude to former and current students, collaborators, and colleagues who have influenced and supported us in creating this course, including (in alphabetical order):</p>
+<ul>
 <li><a href="https://www.audiolabs-erlangen.de/fau/assistant/arifi-mueller">Vlora Arifi-Müller</a></li>
-<li><a href="https://www.audiolabs-erlangen.de/fau/assistant/krause">Michael Krause</a></li>    
-<li><a href="https://www.lms.tf.fau.eu/person/loellmann-heinrich/">Heinrich Löllmann</a></li> 
-<li><a href="https://www.audiolabs-erlangen.de/fau/assistant/meier">Peter Meier</a></li> 
+<li><a href="https://www.audiolabs-erlangen.de/fau/assistant/krause">Michael Krause</a></li>
+<li><a href="https://www.lms.tf.fau.eu/person/loellmann-heinrich/">Heinrich Löllmann</a></li>
+<li><a href="https://www.audiolabs-erlangen.de/fau/assistant/meier">Peter Meier</a></li>
 <li><a href="https://www.audiolabs-erlangen.de/fau/assistant/zalkow">Frank Zalkow</a></li>
-</ul><p>The <a href="https://www.audiolabs-erlangen.de/">International Audio Laboratories Erlangen</a> are a joint institution of the <a href="https://www.fau.eu/">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</a> and <a href="https://www.iis.fraunhofer.de/en.html">Fraunhofer Institute for Integrated Circuits IIS</a>.</p>
-
+</ul>
+<p>The <a href="https://www.audiolabs-erlangen.de/">International Audio Laboratories Erlangen</a> are a joint institution of the <a href="https://www.fau.eu/">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</a> and <a href="https://www.iis.fraunhofer.de/en.html">Fraunhofer Institute for Integrated Circuits IIS</a>.</p>
 </div>
 </div>
 </div>
@@ -13336,16 +13317,13 @@ Email: meinard.mueller@audiolabs-erlangen.de
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div>
-<a href="https://opensource.org/licenses/MIT"><img src="data_layout/PCP_License.png" width=100% style="float: right;" alt="PCP License"></a>
+<a href="https://opensource.org/licenses/MIT"><img alt="PCP License" src="data_layout/PCP_License.png" style="float: right;" width="100%"/></a>
 </div>
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
+</main>
 </body>
-
- 
-
-
 </html>
