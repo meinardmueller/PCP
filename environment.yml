@@ -5,7 +5,7 @@ channels:  # conda channels from which packages are downloaded
   - conda-forge
 
 dependencies:
-  - python=3.10.*  # Plain Python
+  - python=3.9.*  # Plain Python
   - pip=23.2.*  # Package installer for Python
   - numpy=1.25.*  # NumPy
   - matplotlib=3.7.*  # Matplotlib
