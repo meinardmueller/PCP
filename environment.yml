@@ -12,7 +12,7 @@ dependencies:
 # Jupyter Notebook dependencies:
   - ipython=8.12.*
   - jupyter=1.0.*  # prevents server error
-  - jupyter_contrib_nbextensions=0.7.*  # spell checker
   - pip:  # Packages that are installed via pip
     - nbstripout==0.6.*  # strip notebook output
     - nbconvert==7.7.*  # HTML export
+    - jupyter_contrib_nbextensions==0.7.*  # spell checker
